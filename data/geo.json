@@ -1,9 +1,163 @@
 {
- "version": 1,
+ "version": 2,
  "title": "글로벌 지정학 레이더",
- "generatedAt": "2026-11-22T22:30:00Z",
+ "generatedAt": "2026-11-25T13:00:00Z",
  "nextUpdate": "2026-11-29T21:47:00Z",
- "method": "위험 지수(0–100)는 Claude가 매주 공개 보도를 바탕으로 매기는 편집 판단 점수입니다. 인명 피해, 군사 활동, 외교 진전, 에너지·시장 충격을 종합하며 공식 통계가 아닙니다. 글로벌 지수는 한국 관점의 핵심 4개 지역 점수를 가중 평균한 값이며, 가중치는 화면에서 바꿀 수 있습니다. 10/6–10/20 스냅샷은 10/27 첫 작성 시 기존 보도를 근거로 소급 작성했습니다.",
+ "method": {
+  "summary": "위험 지수(0–100)는 공개 자료를 근거로 매주 매기는 편집 판단 점수입니다. 공식 통계가 아니며, 5개 구성요소의 가중합으로 산출해 구성 내역을 공개합니다. 글로벌 지수는 한국 관점 핵심 4개 지역 점수의 가중 평균입니다.",
+  "dimensions": [
+   {
+    "id": "conflict",
+    "name": "무력충돌 강도",
+    "weight": 0.3,
+    "desc": "교전·공습·사상자 규모와 빈도"
+   },
+   {
+    "id": "escalation",
+    "name": "확전·전이 위험",
+    "weight": 0.25,
+    "desc": "제3국 개입, 핵·전략무기, 지역 확산 가능성"
+   },
+   {
+    "id": "diplomacy",
+    "name": "외교 경색도",
+    "weight": 0.15,
+    "desc": "협상 채널 부재·결렬 정도 (높을수록 경색)"
+   },
+   {
+    "id": "economy",
+    "name": "경제·에너지 충격",
+    "weight": 0.2,
+    "desc": "에너지·해운·공급망·제재 충격"
+   },
+   {
+    "id": "korea",
+    "name": "한국 노출도",
+    "weight": 0.1,
+    "desc": "한국 안보·교역·에너지 도입에 미치는 직접 영향"
+   }
+  ],
+  "bands": [
+   {
+    "min": 0,
+    "max": 39,
+    "label": "낮음"
+   },
+   {
+    "min": 40,
+    "max": 59,
+    "label": "주의"
+   },
+   {
+    "min": 60,
+    "max": 79,
+    "label": "높음"
+   },
+   {
+    "min": 80,
+    "max": 100,
+    "label": "심각"
+   }
+  ],
+  "likelihood": [
+   {
+    "term": "거의 없음",
+    "range": "1–5%"
+   },
+   {
+    "term": "가능성 매우 낮음",
+    "range": "5–20%"
+   },
+   {
+    "term": "가능성 낮음",
+    "range": "20–45%"
+   },
+   {
+    "term": "반반",
+    "range": "45–55%"
+   },
+   {
+    "term": "가능성 높음",
+    "range": "55–80%"
+   },
+   {
+    "term": "가능성 매우 높음",
+    "range": "80–95%"
+   },
+   {
+    "term": "거의 확실",
+    "range": "95–99%"
+   }
+  ],
+  "confidence": [
+   {
+    "level": "높음",
+    "desc": "독립된 B등급 이상 출처 3건 이상이 일치하고 반대 근거가 약함"
+   },
+   {
+    "level": "중간",
+    "desc": "신뢰할 만한 출처가 있으나 수가 적거나 해석이 갈림"
+   },
+   {
+    "level": "낮음",
+    "desc": "단일 출처, D등급 출처 의존, 또는 정보 공백이 큼"
+   }
+  ],
+  "tiers": [
+   {
+    "tier": "A",
+    "name": "공식·1차 자료",
+    "desc": "정부·의회·국제기구의 공식 보고서와 통계 (IEA, EIA, USCC, UN)"
+   },
+   {
+    "tier": "B",
+    "name": "전문 분석",
+    "desc": "싱크탱크, IB·자산운용사 리서치, 데이터 기관 (CSIS, CFR, Chatham House, Carnegie, ISW, Kpler, ACLED, J.P. Morgan)"
+   },
+   {
+    "tier": "C",
+    "name": "주요 언론·통신",
+    "desc": "편집 검증을 거치는 언론사·통신사 (AP, Reuters, Al Jazeera, 연합뉴스)"
+   },
+   {
+    "tier": "D",
+    "name": "2차 인용·미검증",
+    "desc": "뉴스레터·블로그·위키 등 재인용, 당사자 일방 주장"
+   }
+  ],
+  "types": [
+   {
+    "id": "official",
+    "name": "공식기관"
+   },
+   {
+    "id": "thinktank",
+    "name": "싱크탱크"
+   },
+   {
+    "id": "ib",
+    "name": "IB·금융"
+   },
+   {
+    "id": "data",
+    "name": "데이터·산업"
+   },
+   {
+    "id": "news",
+    "name": "언론"
+   },
+   {
+    "id": "blog",
+    "name": "뉴스레터·위키"
+   }
+  ],
+  "limits": [
+   "점수와 확률은 편집 판단이며 통계 모델의 산출물이 아닙니다.",
+   "10/6–10/20 스냅샷은 10/27 첫 작성 시 소급 작성했습니다.",
+   "구성요소 분해는 11/23 스냅샷부터 제공됩니다.",
+   "D등급 출처만 있는 사건은 화면에 표시합니다. 판단 근거로 단독 사용하지 않습니다."
+  ]
+ },
  "regions": [
   {
    "id": "ea",
@@ -1857,7 +2011,14 @@
       "3자 핵위험 대화 후속",
       "북한의 연말 전원회의 전후 도발",
       "엔비디아 칩 대중 유출 수사"
-     ]
+     ],
+     "components": {
+      "conflict": 40,
+      "escalation": 60,
+      "diplomacy": 55,
+      "economy": 70,
+      "korea": 95
+     }
     },
     "me": {
      "score": 92,
@@ -1875,7 +2036,14 @@
       "미국의 대규모 작전 재개 여부",
       "카타르 중재 지속",
       "이란 순환 정전과 내부 동요"
-     ]
+     ],
+     "components": {
+      "conflict": 95,
+      "escalation": 95,
+      "diplomacy": 85,
+      "economy": 90,
+      "korea": 90
+     }
     },
     "eu": {
      "score": 65,
@@ -1890,7 +2058,14 @@
       "포로교환 실제 이행",
       "크림대교 공격 뒤 러시아 보복 공습",
       "유럽 배제 우려와 '의지의 연합'"
-     ]
+     ],
+     "components": {
+      "conflict": 88,
+      "escalation": 60,
+      "diplomacy": 70,
+      "economy": 50,
+      "korea": 35
+     }
     },
     "am": {
      "score": 61,
@@ -1904,7 +2079,14 @@
      "watch": [
       "12/11 예산 시한",
       "대이란 작전 확대 여부"
-     ]
+     ],
+     "components": {
+      "conflict": 45,
+      "escalation": 65,
+      "diplomacy": 70,
+      "economy": 70,
+      "korea": 70
+     }
     },
     "sa": {
      "score": 49,
@@ -1915,7 +2097,14 @@
      ],
      "watch": [
       "인-파 국경 사건 재발"
-     ]
+     ],
+     "components": {
+      "conflict": 50,
+      "escalation": 60,
+      "diplomacy": 60,
+      "economy": 40,
+      "korea": 20
+     }
     },
     "af": {
      "score": 67,
@@ -1926,7 +2115,14 @@
      ],
      "watch": [
       "수단 드론전"
-     ]
+     ],
+     "components": {
+      "conflict": 95,
+      "escalation": 70,
+      "diplomacy": 85,
+      "economy": 35,
+      "korea": 10
+     }
     }
    },
    "countries": {
@@ -2103,7 +2299,450 @@
    "indicators": {
     "brent": 92.57,
     "hormuz": 4
-   }
+   },
+   "judgments": [
+    {
+     "id": "kj1",
+     "region": "me",
+     "text": "미·이란은 12월 중 전면전 재개보다 ‘봉쇄 + 국지 보복’ 교착을 이어갈 것이다.",
+     "likelihood": "가능성 높음",
+     "confidence": "중간",
+     "horizon": "12월 말",
+     "basis": [
+      "r2",
+      "r1",
+      "r29",
+      "r6"
+     ],
+     "dissent": "Kpler는 봉쇄가 길수록 이란에게 확전이 더 매력적인 선택이 된다고 경고한다.",
+     "dissentSrc": [
+      "r4"
+     ],
+     "change": "new"
+    },
+    {
+     "id": "kj2",
+     "region": "me",
+     "text": "브렌트는 연말까지 $85–100 범위에 머물 것이다. 걸프 공급 회복이 호르무즈 공격 위험을 상쇄하고 있다.",
+     "likelihood": "가능성 높음",
+     "confidence": "중간",
+     "horizon": "12월 말",
+     "basis": [
+      "r22",
+      "r23",
+      "r24",
+      "r25"
+     ],
+     "dissent": "EIA는 11–12월 약 $100를 전망하고, J.P. Morgan AM은 협상 결렬 시 2026년형 에너지 충격 재현을 경고한다.",
+     "dissentSrc": [
+      "r24",
+      "r26"
+     ],
+     "change": "new"
+    },
+    {
+     "id": "kj3",
+     "region": "ea",
+     "text": "미·중·러 3자회담은 상징적 선언에 그쳐 한반도·대만 정세를 바꾸지 못한다.",
+     "likelihood": "가능성 매우 높음",
+     "confidence": "높음",
+     "horizon": "1월 10일",
+     "basis": [
+      "r8",
+      "r9",
+      "r31",
+      "s43"
+     ],
+     "dissent": "Carnegie(바우노프)는 협상이 얄타식 유럽 질서 재편 논의로 번지고 있다고 본다.",
+     "dissentSrc": [
+      "r17"
+     ],
+     "change": "new"
+    },
+    {
+     "id": "kj4",
+     "region": "ea",
+     "text": "중국은 미·중 관세휴전 기간(~1/10)에도 대만에 대한 해경·회색지대 압박을 유지하거나 늘릴 것이다.",
+     "likelihood": "가능성 높음",
+     "confidence": "중간",
+     "horizon": "1월 10일",
+     "basis": [
+      "r10",
+      "r11",
+      "r15",
+      "r33"
+     ],
+     "dissent": null,
+     "dissentSrc": [],
+     "change": "new"
+    },
+    {
+     "id": "kj5",
+     "region": "eu",
+     "text": "연내 러·우 휴전은 성사되지 않고, 포로교환 같은 인도적 조치만 진전될 것이다.",
+     "likelihood": "가능성 높음",
+     "confidence": "중간",
+     "horizon": "12월 말",
+     "basis": [
+      "r16",
+      "r17",
+      "r18",
+      "r19",
+      "s46"
+     ],
+     "dissent": "쿠슈너 특사는 11/17 협상에서 ‘진전’을 언급했다.",
+     "dissentSrc": [
+      "r19"
+     ],
+     "change": "new"
+    },
+    {
+     "id": "kj6",
+     "region": "ea",
+     "text": "한국의 대러 접근은 제한적 범위에 머물고, 서방 대러 정책에서 이탈하지 않을 것이다.",
+     "likelihood": "가능성 높음",
+     "confidence": "중간",
+     "horizon": "6개월",
+     "basis": [
+      "r12",
+      "r13",
+      "r32"
+     ],
+     "dissent": null,
+     "dissentSrc": [],
+     "change": "new"
+    },
+    {
+     "id": "kj7",
+     "region": "am",
+     "text": "12/11 예산 시한에 이란 전쟁 예산을 둘러싼 대치로 단기 셧다운이 일어날 수 있다.",
+     "likelihood": "반반",
+     "confidence": "낮음",
+     "horizon": "12월 11일",
+     "basis": [
+      "r20",
+      "r21"
+     ],
+     "dissent": null,
+     "dissentSrc": [],
+     "change": "new"
+    }
+   ],
+   "scenarios": {
+    "me": [
+     {
+      "name": "교착 지속: 봉쇄 + 국지 보복",
+      "prob": 55,
+      "desc": "미 봉쇄 유지, 이란의 산발적 기지·선박 공격과 미국의 제한 보복이 반복된다.",
+      "signposts": [
+       {
+        "text": "바레인·쿠웨이트 기지 산발 공격 지속",
+        "status": "충족",
+        "src": [
+         "r28",
+         "r29"
+        ]
+       },
+       {
+        "text": "카타르 중재 채널 유지",
+        "status": "부분",
+        "src": [
+         "s47"
+        ]
+       },
+       {
+        "text": "미국의 대규모 공습 재개 없음",
+        "status": "충족",
+        "src": [
+         "r29"
+        ]
+       }
+      ]
+     },
+     {
+      "name": "확전: 미국 대규모 작전 재개",
+      "prob": 25,
+      "desc": "이란 유조선 선단의 봉쇄 돌파나 미군 사상자를 계기로 대규모 공습이 재개된다.",
+      "signposts": [
+       {
+        "text": "이란 유조선 선단 봉쇄 돌파 시도",
+        "status": "부분",
+        "src": [
+         "s47"
+        ]
+       },
+       {
+        "text": "미 항모 3척 역내 집결",
+        "status": "충족",
+        "src": [
+         "r29"
+        ]
+       },
+       {
+        "text": "미군 사상자 발생",
+        "status": "미충족",
+        "src": [
+         "r29"
+        ]
+       }
+      ]
+     },
+     {
+      "name": "단계적 합의: 봉쇄 부분 해제 ↔ 해협 개방",
+      "prob": 20,
+      "desc": "Chatham House가 제안한 1단계 맞교환이 성사된다.",
+      "signposts": [
+       {
+        "text": "농축 동결 기간 이견 축소 (20년 vs 한 자릿수)",
+        "status": "미충족",
+        "src": [
+         "r1"
+        ]
+       },
+       {
+        "text": "이란의 사찰 수용",
+        "status": "미충족",
+        "src": [
+         "s41"
+        ]
+       },
+       {
+        "text": "봉쇄 부분 완화 발표",
+        "status": "미충족",
+        "src": [
+         "r2"
+        ]
+       }
+      ]
+     }
+    ],
+    "ea": [
+     {
+      "name": "관리된 긴장",
+      "prob": 60,
+      "desc": "관세휴전 유지, 북한은 저강도 시험, 대만 해협은 회색지대 압박 수준.",
+      "signposts": [
+       {
+        "text": "북한 ICBM급 발사 없음",
+        "status": "충족",
+        "src": [
+         "r14"
+        ]
+       },
+       {
+        "text": "미·중 휴전 연장 논의 개시",
+        "status": "미충족",
+        "src": [
+         "r8"
+        ]
+       }
+      ]
+     },
+     {
+      "name": "대만 회색지대 압박 고조",
+      "prob": 30,
+      "desc": "해경의 대만 동부 상시 순찰, 검문·격리 시도로 위기가 고조된다.",
+      "signposts": [
+       {
+        "text": "대만 동부 해경 순찰 상시화",
+        "status": "충족",
+        "src": [
+         "r33",
+         "r15"
+        ]
+       },
+       {
+        "text": "선박 검문·격리 시도",
+        "status": "미충족",
+        "src": [
+         "r11"
+        ]
+       }
+      ]
+     },
+     {
+      "name": "북한 전략 도발",
+      "prob": 10,
+      "desc": "연말 전원회의 전후 ICBM·핵실험 등 전략 도발.",
+      "signposts": [
+       {
+        "text": "연말 전원회의 일정 공표",
+        "status": "미충족",
+        "src": []
+       },
+       {
+        "text": "풍계리 활동 징후 보도",
+        "status": "미충족",
+        "src": []
+       }
+      ]
+     }
+    ],
+    "eu": [
+     {
+      "name": "소모전 지속 + 인도적 조치",
+      "prob": 65,
+      "desc": "전선 정체, 장거리 타격 교환, 포로교환 이행.",
+      "signposts": [
+       {
+        "text": "전선 진격 없음",
+        "status": "충족",
+        "src": [
+         "r18"
+        ]
+       },
+       {
+        "text": "1,000명 이상 포로교환 이행",
+        "status": "부분",
+        "src": [
+         "s46"
+        ]
+       }
+      ]
+     },
+     {
+      "name": "러시아 보복 공습 확대",
+      "prob": 25,
+      "desc": "크림대교 공격에 대한 대규모 보복 공습과 협상 중단.",
+      "signposts": [
+       {
+        "text": "푸틴 ‘협상 없다’ 발언",
+        "status": "충족",
+        "src": [
+         "s44"
+        ]
+       },
+       {
+        "text": "전력망 대규모 공습",
+        "status": "미충족",
+        "src": []
+       }
+      ]
+     },
+     {
+      "name": "휴전 프레임 합의",
+      "prob": 10,
+      "desc": "미·러·우가 휴전 틀에 합의한다.",
+      "signposts": [
+       {
+        "text": "유럽의 협상 참여 합의",
+        "status": "미충족",
+        "src": [
+         "r19"
+        ]
+       },
+       {
+        "text": "러시아 최대주의 요구 완화",
+        "status": "미충족",
+        "src": [
+         "r16"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "views": [
+    {
+     "q": "미·이란 전쟁이 다시 전면전으로 번질 위험",
+     "lo": "낮음",
+     "hi": "높음",
+     "views": [
+      {
+       "src": "r1",
+       "x": 0.35,
+       "label": "CSIS",
+       "text": "협상 타결로 수렴"
+      },
+      {
+       "src": "r3",
+       "x": 0.55,
+       "label": "CFR",
+       "text": "좋은 선택지 없음"
+      },
+      {
+       "src": "r4",
+       "x": 0.62,
+       "label": "Kpler",
+       "text": "봉쇄 길수록 확전 유인"
+      },
+      {
+       "src": "r6",
+       "x": 0.6,
+       "label": "ISW",
+       "text": "정보전으로 공격 효과 증폭"
+      },
+      {
+       "src": "r2",
+       "x": 0.68,
+       "label": "Chatham House",
+       "text": "재개 배제 못함"
+      }
+     ]
+    },
+    {
+     "q": "미·중·러 3자회담의 실질적 의미",
+     "lo": "상징에 그침",
+     "hi": "질서 재편",
+     "views": [
+      {
+       "src": "r9",
+       "x": 0.1,
+       "label": "Foreign Policy",
+       "text": "사진 촬영 기회"
+      },
+      {
+       "src": "r8",
+       "x": 0.22,
+       "label": "CFR",
+       "text": "실질 성과 거의 없음"
+      },
+      {
+       "src": "r31",
+       "x": 0.5,
+       "label": "Al Jazeera",
+       "text": "평화 선언 채택"
+      },
+      {
+       "src": "r17",
+       "x": 0.75,
+       "label": "Carnegie",
+       "text": "얄타식 유럽 재편 시도"
+      }
+     ]
+    },
+    {
+     "q": "연내 우크라이나 평화 가능성",
+     "lo": "낮음",
+     "hi": "높음",
+     "views": [
+      {
+       "src": "r16",
+       "x": 0.15,
+       "label": "Carnegie Europe",
+       "text": "러시아 최대주의가 장애"
+      },
+      {
+       "src": "r18",
+       "x": 0.2,
+       "label": "ISW",
+       "text": "전쟁을 강대국 거래로 확장"
+      },
+      {
+       "src": "r17",
+       "x": 0.28,
+       "label": "Carnegie",
+       "text": "협상이 유럽 질서 논의로 변질"
+      },
+      {
+       "src": "r19",
+       "x": 0.55,
+       "label": "Al Jazeera",
+       "text": "미 특사 ‘진전’ 언급"
+      }
+     ]
+    }
+   ]
   }
  ],
  "events": [
@@ -4085,7 +4724,10 @@
      "s43",
      "s45",
      "s42",
-     "s39"
+     "s39",
+     "r13",
+     "r12",
+     "r14"
     ]
    },
    {
@@ -4101,7 +4743,9 @@
     "src": [
      "s50",
      "s47",
-     "s44"
+     "s44",
+     "r22",
+     "r24"
     ]
    },
    {
@@ -4118,7 +4762,9 @@
      "s38",
      "s48",
      "s44",
-     "s49"
+     "s49",
+     "r11",
+     "r8"
     ]
    }
   ],
@@ -4163,254 +4809,1179 @@
  },
  "sources": [
   {
+   "id": "r1",
+   "publisher": "CSIS",
+   "title": "Iran’s Strait of Hormuz Gambit and the Limits of U.S. Military Power",
+   "authors": "Daniel Byman",
+   "url": "https://www.csis.org/analysis/irans-strait-hormuz-gambit-and-limits-us-military-power",
+   "date": null,
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "호르무즈 봉쇄와 미국의 역봉쇄로 전쟁은 군사력보다 정치적 지구력과 협상 지렛대의 싸움이 됐다. 결말은 결정적 승패보다 협상 타결에 가깝다고 본다.",
+   "figures": "미국은 20년 농축 동결, 이란은 한 자릿수 연수 제시",
+   "checked": "2026-11-25",
+   "note": "페이지에 발행일 표시 없음"
+  },
+  {
+   "id": "r2",
+   "publisher": "Chatham House",
+   "title": "Will the US and Iran return to war?",
+   "authors": null,
+   "url": "https://www.chathamhouse.org/2026/11/will-us-and-iran-return-war",
+   "date": "2026-11-09",
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "미 해상봉쇄가 이란 재정을 타격했지만 양보로 이어질 가능성은 낮아 무력충돌 재개를 배제할 수 없다. 봉쇄 부분 해제와 해협 개방을 맞바꾸는 단계적 외교를 제안.",
+   "figures": "봉쇄 4월 개시, 6월 MoU로 완화, 7/14 재개",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r3",
+   "publisher": "CFR",
+   "title": "Six Months Into the Iran War, the United States Has No Good Options",
+   "authors": "James M. Lindsay",
+   "url": "https://www.cfr.org/article/six-months-into-the-iran-war-the-united-states-has-no-good-options",
+   "date": "2026-08-26",
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "me",
+    "am"
+   ],
+   "takeaway": "군사 확전은 걸프 미군기지 보복 위험을, 경제 압박 확대는 중국과의 충돌 위험을 수반해 미국에 좋은 선택지가 없다.",
+   "figures": "중국이 이란 원유 수출의 80% 이상 구매",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r4",
+   "publisher": "Kpler",
+   "title": "Iran’s blockade trilemma: endure, escalate or negotiate",
+   "authors": "Homayoun Falakshahi",
+   "url": "https://www.kpler.com/blog/irans-blockade-trilemma-endure-escalate-or-negotiate",
+   "date": "2026-08-20",
+   "type": "data",
+   "tier": "B",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "봉쇄로 이란의 현상유지 비용이 계속 커진다. 확전이 임박하진 않았지만 봉쇄가 길수록 확전이 상대적으로 매력적인 선택이 된다.",
+   "figures": "8월 이란 원유 선적 24.8만 b/d (3–4월 185만 b/d)",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r5",
+   "publisher": "RUSI",
+   "title": "The Strait of Hormuz Problem: What ‘Securing’ the Waterway Actually Requires",
+   "authors": "David B. Roberts",
+   "url": "https://www.rusi.org/explore-our-research/publications/commentary/strait-hormuz-problem-what-securing-waterway-actually-requires",
+   "date": "2026-03-24",
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "호르무즈 안보는 군사작전만으론 확보가 어렵다. 전쟁위험 보험 조건이 개선돼야 통항이 회복되며, 이는 이란 해상공격 능력의 대폭 약화나 정치적 합의로만 가능하다.",
+   "figures": "통항량 약 90% 감소(3월 기준)",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r6",
+   "publisher": "ISW · Critical Threats (AEI)",
+   "title": "Iran Update, November 10, 2026",
+   "authors": null,
+   "url": "https://www.criticalthreats.org/analysis/iran-update-november-10-2026",
+   "date": "2026-11-10",
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "이란은 제한적 해상공격을 정보전으로 증폭해 정치·경제적 효과를 키우고 있다. 자체 2,000km 미사일 사거리 제한 해제를 공식화했다.",
+   "figures": "CENTCOM Task Force Iron Gate 11/7 창설",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r7",
+   "publisher": "Brookings",
+   "title": "A sinking feeling: The Strait of Hormuz and strains on US naval power",
+   "authors": "Bruce Jones",
+   "url": "https://www.brookings.edu/articles/a-sinking-feeling-the-strait-of-hormuz-and-strains-on-us-naval-power/",
+   "date": "2026-06-08",
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "me",
+    "am"
+   ],
+   "takeaway": "이란 분쟁은 미 해군력의 부족과 동맹 체계의 긴장을 드러냈다. 미국은 해협 완전 재개방·기뢰 제거에 실패하고 있다.",
+   "figures": "미 해군 약 280척, 토마호크 약 1,000발 소진 추정",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r8",
+   "publisher": "CFR",
+   "title": "Six Experts on the Significance of Trump, Xi, and Putin’s First Trilateral Meeting",
+   "authors": "Froman, Doshi, Graham, Fix, Dumbacher, McGuire",
+   "url": "https://www.cfr.org/articles/six-experts-on-what-trump-xi-and-putins-first-trilateral-means",
+   "date": "2026-11-19",
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "ea",
+    "eu",
+    "am"
+   ],
+   "takeaway": "첫 미·중·러 3자회담은 실질 성과가 거의 없고 상징성이 컸다. 공동성명은 우크라이나를 다루지 않았고 핵위험 대화 합의도 군축과는 거리가 멀다.",
+   "figures": "미·중 무역휴전 2027-01-10 만료, G20 마이애미 12/14–15",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r9",
+   "publisher": "Foreign Policy",
+   "title": "Shenzhen Was No Yalta Conference",
+   "authors": "James Palmer",
+   "url": "https://foreignpolicy.com/?p=1247183",
+   "date": null,
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "ea",
+    "eu"
+   ],
+   "takeaway": "선전 3자회담은 사실상 사진 촬영 기회였다. 지금의 강대국들은 우크라이나나 대만을 강제로 좌우할 힘이 없다.",
+   "figures": null,
+   "checked": "2026-11-25",
+   "note": "페이지에 발행일 표시 없음"
+  },
+  {
+   "id": "r10",
+   "publisher": "CSIS Futures Lab",
+   "title": "The Geometry of Coercion: Tracking the PRC’s Maritime and Air Pressure on Taiwan",
+   "authors": "Benjamin Jensen",
+   "url": "https://www.csis.org/analysis/geometry-coercion-tracking-prcs-maritime-and-air-pressure-taiwan",
+   "date": null,
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "ea"
+   ],
+   "takeaway": "2020년 1월~2025년 12월 중국의 대만 주변 해상·공중 압박은 지속적으로 늘었다. 상시 감시와 사전 승인된 대응 옵션을 권고.",
+   "figures": "대만 근해 중국 해경선 일평균 500% 이상 증가",
+   "checked": "2026-11-25",
+   "note": "페이지에 발행일 표시 없음"
+  },
+  {
+   "id": "r11",
+   "publisher": "미·중 경제안보검토위원회(USCC)",
+   "title": "2026 연례보고서 9장: Taiwan: A Crucial Window for a Critical Partner",
+   "authors": null,
+   "url": "https://www.uscc.gov/sites/default/files/2026-11/Chapter_9--Taiwan_A_Crucial_Window_for_a_Critical_Partner.pdf",
+   "date": null,
+   "type": "official",
+   "tier": "A",
+   "regions": [
+    "ea"
+   ],
+   "takeaway": "향후 24개월이 대만 억지의 결정적 시기다. 중국이 침공보다 격리·봉쇄 같은 강압으로 현상을 바꿀 위험이 크다.",
+   "figures": "미승인 인도 대기 무기 약 300억 달러(2026-08)",
+   "checked": "2026-11-25",
+   "note": "PDF에 날짜 표시 없음. URL 경로상 2026년 11월 공개"
+  },
+  {
+   "id": "r12",
+   "publisher": "Carnegie Endowment",
+   "title": "What’s Behind South Korea’s Rift With Ukraine and Turn Toward Russia?",
+   "authors": "James D.J. Brown",
+   "url": "https://carnegieendowment.org/russia-eurasia/politika/2026/11/south-korea-russia-political-pivot",
+   "date": "2026-11-13",
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "ea",
+    "eu"
+   ],
+   "takeaway": "한국의 대러 관계 개선은 실용주의와 정부 성향으로 설명되지만, 주한미군과 유럽 방산수출 등의 제약으로 서방 정책에서 크게 벗어나진 않을 것이다.",
+   "figures": "10/8 주우크라이나 대사 소환, 8월 러시아 연료 수입의 31% 공급",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r13",
+   "publisher": "The Korea Times (연합뉴스)",
+   "title": "Lee, Putin agree to pursue cooperation where possible, work to ease tensions on Korean Peninsula",
+   "authors": null,
+   "url": "https://www.koreatimes.co.kr/foreignaffairs/20261119/lee-putin-agree-to-pursue-cooperation-where-possible-work-to-ease-tensions-on-korean-peninsula",
+   "date": "2026-11-19",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "ea"
+   ],
+   "takeaway": "이재명·푸틴 10분 회담. 장애 없는 분야 협력과 한반도 긴장 완화에 공감, 3자 논의에 한국 이익 반영을 강조.",
+   "figures": null,
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r14",
+   "publisher": "Stars and Stripes",
+   "title": "North Korea claims new missile technology as Trump-Kim diplomacy remains in doubt",
+   "authors": "Julie Masson",
+   "url": "https://www.stripes.com/theaters/asia_pacific/2026-11-05/north-korea-missile-technology-diplomacy-23369224.html",
+   "date": "2026-11-05",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "ea"
+   ],
+   "takeaway": "북한이 신형 방공미사일 시험을 발표. 무기 시험·사이버 범죄·대러 협력으로 미·북 대화가 더 어려워졌다는 평가.",
+   "figures": "11/4 선덕 일대 발사",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r15",
+   "publisher": "ASPI The Strategist",
+   "title": "Comfortable in a truce with the US, China pushes Taiwan harder",
+   "authors": "Thijs Stegeman",
+   "url": "https://www.aspistrategist.org.au/comfortable-in-a-truce-with-the-us-china-pushes-taiwan-harder/",
+   "date": "2026-07-07",
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "ea"
+   ],
+   "takeaway": "중국은 미·중 휴전을 틈타 외교 고립, 해경 순찰로 대만 압박을 강화한다. 미국의 대응은 우려 표명에 그쳐 비용이 거의 없다.",
+   "figures": "프라타스 제한수역 33시간 체류(5/24)",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r16",
+   "publisher": "Carnegie Europe",
+   "title": "How Realistic Is Peace in Ukraine?",
+   "authors": "Kadri Liik",
+   "url": "https://carnegieendowment.org/europe/strategic-europe/2026/11/how-realistic-is-peace-in-ukraine",
+   "date": "2026-11-19",
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "eu"
+   ],
+   "takeaway": "러시아의 최대주의적 요구가 실질적 종전 시도를 막고 있다. 평화가 현실성을 가지려면 푸틴이 외교가 쌍방향임을 받아들여야 한다.",
+   "figures": "러시아가 2027년 봄까지 기다릴 가능성 언급",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r17",
+   "publisher": "Carnegie Politika",
+   "title": "Putin Is Using the Ukraine Peace Talks to Reshape Europe",
+   "authors": "Alexander Baunov",
+   "url": "https://carnegieendowment.org/russia-eurasia/politika/2026/11/russia-europe-ambitions",
+   "date": "2026-11-19",
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "eu"
+   ],
+   "takeaway": "평화협상이 종전에서 유럽 신질서 논의로 확대됐고 미국은 중재자에서 협상 당사자가 됐다. 푸틴의 얄타식 구상과 연결된다.",
+   "figures": "NATO 인프라 1997년 이전 수준 후퇴 요구",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r18",
+   "publisher": "ISW",
+   "title": "Russian Offensive Campaign Assessment, November 18, 2026",
+   "authors": "Sher, Neuman, Clark 외",
+   "url": "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-november-18-2026",
+   "date": "2026-11-18",
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "eu"
+   ],
+   "takeaway": "푸틴은 APEC을 계기로 우크라이나 전쟁을 강대국 관계의 일부로 제시했다. 당일 양측 모두 전선에서 진격하지 못했다.",
+   "figures": "10월 우크라 민간인 사망 372명·부상 1,981명(전년 대비 +95%)",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r19",
+   "publisher": "Al Jazeera (Reuters)",
+   "title": "Ukraine holds peace talks with US, Europe as conflict escalates",
+   "authors": null,
+   "url": "https://aljazeera.com/news/2026/11/17/ukraine-holds-peace-talks-with-us-europe-as-conflict-escalates",
+   "date": "2026-11-17",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "eu"
+   ],
+   "takeaway": "우크라이나가 미·유럽과 협상. 쿠슈너는 진전을 언급했지만 모스크바는 유럽의 다음 협상 참여에 동의하지 않았다.",
+   "figures": "모스크바 인근 드론 약 200대 요격",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r20",
+   "publisher": "Political Wire (Punchbowl News 인용)",
+   "title": "Democrats Weigh Shutdown Over Iran War",
+   "authors": null,
+   "url": "https://politicalwire.com/2026/11/18/democrats-weigh-shutdown-over-iran-war-2/",
+   "date": "2026-11-18",
+   "type": "news",
+   "tier": "D",
+   "regions": [
+    "am"
+   ],
+   "takeaway": "12/11 시한에 셧다운을 감수할지 두고 민주당 상·하원 입장이 갈린다. 이란 전쟁 자금을 끊자는 목소리가 커지고 있다.",
+   "figures": "의회 11/30 복귀",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r21",
+   "publisher": "Air & Space Forces Magazine",
+   "title": "Congress Passes Short-Term Funding Bill, Putting DOD’s $1.5T Budget Ask on Hold",
+   "authors": "Greg Hadley",
+   "url": "https://www.airandspaceforces.com/congress-cr-pentagon-december-1-5t-budget-request/",
+   "date": "2026-09-01",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "am"
+   ],
+   "takeaway": "9/1 임시예산(CR)이 12/11까지 지출을 연장해 국방부의 1.5조 달러 요청이 보류됐다.",
+   "figures": "CR 기준 8,385억 달러(요청 대비 -44%)",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r22",
+   "publisher": "IEA",
+   "title": "Oil Market Report – November 2026",
+   "authors": null,
+   "url": "https://iea.org/reports/oil-market-report-november-2026",
+   "date": "2026-11-13",
+   "type": "official",
+   "tier": "A",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "전쟁 이후 처음으로 공급이 수요를 넘어섰고 4분기 시장은 공급 과잉으로 돌아설 전망. 디젤 등 제품 타이트와 해상 안보 위험은 남아 있다.",
+   "figures": "2026 수요 1억230만 b/d(-270만), 10월 걸프 수출 전쟁 전 대비 -26%, 재고 4.62억 배럴 감소",
+   "checked": "2026-11-25",
+   "note": "OMR 페이지에 날짜 표시 없음. 발행일은 같은 날 S&P Global 보도(r23) 기준"
+  },
+  {
+   "id": "r23",
+   "publisher": "S&P Global Commodity Insights",
+   "title": "World oil market set for Q4 surplus as Gulf supply rebounds: IEA",
+   "authors": "Robert Perkins",
+   "url": "https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/111326-world-oil-market-set-for-q4-surplus-as-gulf-supply-rebounds-iea",
+   "date": "2026-11-13",
+   "type": "data",
+   "tier": "B",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "중동 원유 흐름의 빠른 회복이 약한 수요를 앞질러 4분기 공급 과잉이 나타날 것이라는 IEA 전망을 전했다.",
+   "figures": "Dated Brent $92.06 (11/12), 10월 초 $135 이상 정점",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r24",
+   "publisher": "Oil & Gas Journal (EIA STEO 11월호)",
+   "title": "EIA sees Brent near $100/bbl through yearend 2026 as Middle East supply constraints persist",
+   "authors": null,
+   "url": "https://www.ogj.com/general-interest/economics-markets/news/55418180/eia-sees-brent-near-100-bbl-through-yearend-2026-as-middle-east-supply-constraints-persist",
+   "date": "2026-11-11",
+   "type": "official",
+   "tier": "B",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "EIA는 중동 공급 차질로 연말까지 브렌트가 약 $100 부근에 머물다 2027년 하락한다고 전망.",
+   "figures": "2026 평균 $97, 2027 $86, 4Q27 $77, 중동 생산차질 10월 250만 b/d",
+   "checked": "2026-11-25",
+   "note": "EIA STEO 11월호 수치를 전한 OGJ 보도. EIA 원문 페이지는 이번에 열람하지 않음"
+  },
+  {
+   "id": "r25",
+   "publisher": "THISDAY (골드만삭스 전망 보도)",
+   "title": "Goldman Sachs: Brent to Average $80 in 2027 Amid M’East Oil Supply Recovery",
+   "authors": "Emmanuel Addeh",
+   "url": "https://www.thisdaylive.com/2026/10/19/goldman-sachs-brent-to-average-80-in-2027-amid-meast-oil-supply-recovery-2/",
+   "date": null,
+   "type": "ib",
+   "tier": "C",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "골드만삭스는 2027년 브렌트 평균 $80, 2026년 12월 $90(기존 $85)으로 전망. 재확전은 상방 리스크.",
+   "figures": "2027 평균 $80, 2026-12 $90",
+   "checked": "2026-11-25",
+   "note": "페이지에 날짜 없음(URL 경로 2026-10-19). 골드만 원문이 아닌 언론 보도"
+  },
+  {
+   "id": "r26",
+   "publisher": "J.P. Morgan Asset Management",
+   "title": "2027 Investment Outlook: Still up, but a bumpier path",
+   "authors": "Karen Ward 외",
+   "url": "https://am.jpmorgan.com/content/dam/jpm-am-aem/global/en/insights/market-insights/investment-outlook-2027.pdf",
+   "date": null,
+   "type": "ib",
+   "tier": "B",
+   "regions": [
+    "me",
+    "am"
+   ],
+   "takeaway": "협상 실패나 재확전 시 2026년 같은 에너지 충격이 재현될 수 있다. 정제제품, 특히 디젤 공급 차질이 유가·물가 압력의 핵심.",
+   "figures": "해상 디젤 수출의 30% 차질, 정제가동률 90% 이상(데이터 기준 11/9)",
+   "checked": "2026-11-25",
+   "note": "표지 2026년 11월, 데이터 기준 11/9"
+  },
+  {
+   "id": "r27",
+   "publisher": "Caldara & Iacoviello",
+   "title": "Geopolitical Risk (GPR) Index",
+   "authors": null,
+   "url": "https://www.matteoiacoviello.com/gpr.htm",
+   "date": "2026-11-23",
+   "type": "data",
+   "tier": "B",
+   "regions": [],
+   "takeaway": "10개 주요 신문의 지정학 관련 기사 빈도로 만든 지수(AER 2022). 일간 지수 11/23 갱신. 본 대시보드 점수의 외부 비교 기준.",
+   "figures": null,
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r28",
+   "publisher": "Khaleej Times (Reuters)",
+   "title": "Bahrain intercepts several Iranian aerial attacks as Iran claims attack on US base",
+   "authors": null,
+   "url": "https://www.khaleejtimes.com/gulf/bahrain-issues-threat-alerts-irgc-claim-attack-us-base",
+   "date": "2026-11-15",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "바레인이 이란의 공격 여러 건을 요격. IRGC는 알 리파아 헬기기지의 미군 방공레이더에 드론 6대를 발사했다고 주장(미·바레인 확인 없음).",
+   "figures": "9월 이후 첫 바레인 방공 요격",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r29",
+   "publisher": "AP (KPBS 게재)",
+   "title": "Iran launches a third round of strikes on Bahrain, host of U.S. Navy’s 5th Fleet",
+   "authors": null,
+   "url": "https://www.kpbs.org/news/international/2026/11/17/iran-launches-a-third-round-of-strikes-on-bahrain-host-of-u-s-navys-5th-fleet",
+   "date": "2026-11-17",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "이란이 바레인 미군 레이더 시설에 드론 공격(닷새 새 세 번째). 미국은 게쉼섬 IRGC 미사일 기지를 타격했다. 약 2개월 소강 종료.",
+   "figures": "항모 3척(루스벨트·부시·워싱턴) 집결, 미측 피해 없음",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r30",
+   "publisher": "Hürriyet Daily News",
+   "title": "Two-month lull ends with Iran strikes on US targets in Bahrain",
+   "authors": null,
+   "url": "https://www.hurriyetdailynews.com/two-month-lull-ends-with-iran-strikes-on-us-targets-in-bahrain-229556",
+   "date": "2026-11-18",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "이란의 11/17 바레인 공격과 미국의 보복 타격으로 2개월 소강이 끝났다.",
+   "figures": null,
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r31",
+   "publisher": "Al Jazeera",
+   "title": "‘Groundbreaking’ Trump-Xi-Putin summit: Five key takeaways",
+   "authors": "Yashraj Sharma",
+   "url": "https://aljazeera.com/news/2026/11/19/groundbreaking-trump-xi-putin-summit-five-key-takeaways",
+   "date": "2026-11-19",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "ea",
+    "eu",
+    "am"
+   ],
+   "takeaway": "선전 3자회담은 1시간여 진행. 에너지 흐름 안정, 핵위험 감소 대화, ICC 비판을 담은 평화 선언을 발표.",
+   "figures": null,
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r32",
+   "publisher": "Korea JoongAng Daily",
+   "title": "South Korean and Russian leaders talk for first time in 7 years, discuss Pyongyang issue",
+   "authors": "Sarah Kim",
+   "url": "https://www.koreajoongangdaily.com/korea/south-korean-and-russian-leaders-talk-for-first-time-in-7-years-discuss-pyongyang-issue/12980320",
+   "date": "2026-11-19",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "ea"
+   ],
+   "takeaway": "한·러 정상이 7년여 만에 대화(약 10분). 북한 문제와 협력 가능성을 논의.",
+   "figures": null,
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
+   "id": "r33",
+   "publisher": "ACLED",
+   "title": "China’s maritime presence around Taiwan is becoming the new normal",
+   "authors": "Laura Sorica",
+   "url": "https://acleddata.com/report/chinas-maritime-presence-around-taiwan-becoming-new-normal",
+   "date": "2026-08-24",
+   "type": "data",
+   "tier": "B",
+   "regions": [
+    "ea"
+   ],
+   "takeaway": "6월 이후 중국 해경·조사선의 대만 주변 활동이 늘었고, 대만 동쪽 순찰을 상시화해 관할권 주장을 정상화하려 한다.",
+   "figures": "중국 관련 사건 월별: 5월 8 → 6월 23 → 7월 21",
+   "checked": "2026-11-25",
+   "note": null
+  },
+  {
    "id": "s1",
+   "publisher": "geopoliticsexplained.substack.com",
    "title": "This Week In Geopolitics (10/25)",
-   "url": "https://geopoliticsexplained.substack.com/p/this-week-in-geopolitics-25th-october"
+   "url": "https://geopoliticsexplained.substack.com/p/this-week-in-geopolitics-25th-october",
+   "date": "2026-10-25",
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s2",
+   "publisher": "mdbriefing.substack.com",
    "title": "MD Weekly Briefing (10/26 주)",
-   "url": "https://mdbriefing.substack.com/p/md-weekly-briefing-week-of-26-october"
+   "url": "https://mdbriefing.substack.com/p/md-weekly-briefing-week-of-26-october",
+   "date": "2026-10-26",
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s3",
+   "publisher": "geopol.substack.com",
    "title": "In Geopolitics Today (10/26)",
-   "url": "https://geopol.substack.com/p/in-geopolitics-today-monday-october-374"
+   "url": "https://geopol.substack.com/p/in-geopolitics-today-monday-october-374",
+   "date": "2026-10-26",
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s4",
+   "publisher": "mackinderforum.org",
    "title": "Mackinder Forum 주간 불릿 (10/2–10/9)",
-   "url": "https://mackinderforum.org/geopolitical-newsletter/weekly-geopolitical-news-bulletin-october-2-2026-october-9-2026"
+   "url": "https://mackinderforum.org/geopolitical-newsletter/weekly-geopolitical-news-bulletin-october-2-2026-october-9-2026",
+   "date": "2026-10-02",
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s5",
-   "title": "Wikipedia: 2026 in North Korea",
-   "url": "https://en.wikipedia.org/wiki/2026_in_North_Korea"
+   "publisher": "Wikipedia",
+   "title": "2026 in North Korea",
+   "url": "https://en.wikipedia.org/wiki/2026_in_North_Korea",
+   "date": null,
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s6",
+   "publisher": "Focus Taiwan",
    "title": "Focus Taiwan (10/12)",
-   "url": "https://focustaiwan.tw/politics/202610120006"
+   "url": "https://focustaiwan.tw/politics/202610120006",
+   "date": "2026-10-12",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s7",
+   "publisher": "USNI News",
    "title": "USNI News (10/14)",
-   "url": "https://news.usni.org/2026/10/14/chinese-carrier-strike-group-drills-in-the-philippine-sea"
+   "url": "https://news.usni.org/2026/10/14/chinese-carrier-strike-group-drills-in-the-philippine-sea",
+   "date": "2026-10-14",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s8",
+   "publisher": "Kyiv Independent",
    "title": "Kyiv Independent (7/10)",
-   "url": "https://kyivindependent.com/ukraine-war-latest-russian-territorial-advances-slowed-by-more-than-half-in-2026-syrskyi-says/"
+   "url": "https://kyivindependent.com/ukraine-war-latest-russian-territorial-advances-slowed-by-more-than-half-in-2026-syrskyi-says/",
+   "date": "2026-07-10",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s9",
-   "title": "GlobalSecurity: Iran War 2026 Daily Update",
-   "url": "https://www.globalsecurity.org/military/ops/iran-war-update.htm"
+   "publisher": "GlobalSecurity",
+   "title": "Iran War 2026 Daily Update",
+   "url": "https://www.globalsecurity.org/military/ops/iran-war-update.htm",
+   "date": null,
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s10",
-   "title": "Wikipedia: 2026 Cuban crisis",
-   "url": "https://en.wikipedia.org/wiki/2026_Cuban_crisis"
+   "publisher": "Wikipedia",
+   "title": "2026 Cuban crisis",
+   "url": "https://en.wikipedia.org/wiki/2026_Cuban_crisis",
+   "date": null,
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s11",
-   "title": "KDI 경제정보센터: 호르무즈 리스크 한국경제 충격 진단 (4/10)",
-   "url": "https://eiec.kdi.re.kr/policy/domesticView.do?ac=0000204293"
+   "publisher": "KDI 경제정보센터",
+   "title": "호르무즈 리스크 한국경제 충격 진단 (4/10)",
+   "url": "https://eiec.kdi.re.kr/policy/domesticView.do?ac=0000204293",
+   "date": "2026-04-10",
+   "type": "thinktank",
+   "tier": "B",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s12",
-   "title": "뉴스1: 고유가·고환율 동반 타격 (9/22)",
-   "url": "https://www.news1.kr/economy/trend/6297975"
+   "publisher": "뉴스1",
+   "title": "고유가·고환율 동반 타격 (9/22)",
+   "url": "https://www.news1.kr/economy/trend/6297975",
+   "date": "2026-09-22",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s13",
-   "title": "Oilprice.com: HSBC 2026 브렌트 전망 상향 (9/10)",
-   "url": "https://oilprice.com/Latest-Energy-News/World-News/HSBC-Raises-2026-Brent-Forecast-to-90-as-Hormuz-Crisis-Drags-On.html"
+   "publisher": "Oilprice.com",
+   "title": "HSBC 2026 브렌트 전망 상향 (9/10)",
+   "url": "https://oilprice.com/Latest-Energy-News/World-News/HSBC-Raises-2026-Brent-Forecast-to-90-as-Hormuz-Crisis-Drags-On.html",
+   "date": "2026-09-10",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s14",
-   "title": "Wikipedia: 2026 이스라엘 총선 여론조사",
-   "url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election"
+   "publisher": "Wikipedia",
+   "title": "2026 이스라엘 총선 여론조사",
+   "url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election",
+   "date": null,
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s15",
-   "title": "Express Tribune: Brent holds above $100 (10/3)",
-   "url": "https://tribune.com.pk/story/2628485/brent-holds-above-100-as-tanker-attacks-deepen-supply-fear"
+   "publisher": "Express Tribune",
+   "title": "Brent holds above $100 (10/3)",
+   "url": "https://tribune.com.pk/story/2628485/brent-holds-above-100-as-tanker-attacks-deepen-supply-fear",
+   "date": "2026-10-03",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s16",
-   "title": "i24NEWS: 이스라엘 개표 완료, 네타냐후 블록 과반 미달 (10/29)",
-   "url": "https://www.i24news.tv/en/news/israeli-elections/artc-israel-completes-vote-count-with-netanyahu-s-bloc-short-of-a-majority"
+   "publisher": "i24NEWS",
+   "title": "이스라엘 개표 완료, 네타냐후 블록 과반 미달 (10/29)",
+   "url": "https://www.i24news.tv/en/news/israeli-elections/artc-israel-completes-vote-count-with-netanyahu-s-bloc-short-of-a-majority",
+   "date": "2026-10-29",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s17",
-   "title": "Political.org: 이스라엘 총선 출구조사·개표 (10/27–28)",
-   "url": "https://political.org/2026/10/27/netanyahu-fights-for-political-life-as-israelis-vote-exit-polls-show-no-clear-winner/"
+   "publisher": "Political.org",
+   "title": "이스라엘 총선 출구조사·개표 (10/27–28)",
+   "url": "https://political.org/2026/10/27/netanyahu-fights-for-political-life-as-israelis-vote-exit-polls-show-no-clear-winner/",
+   "date": "2026-10-27",
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s18",
+   "publisher": "josephbrucevarner.substack.com",
    "title": "Geopolitics Daily (Reuters·AFP·ISW 종합, 11/1)",
-   "url": "https://josephbrucevarner.substack.com/p/geopolitics-daily-1-nov-26"
+   "url": "https://josephbrucevarner.substack.com/p/geopolitics-daily-1-nov-26",
+   "date": null,
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s19",
+   "publisher": "andmagazine.substack.com",
    "title": "&Magazine Morning Brief (11/1)",
-   "url": "https://andmagazine.substack.com/p/morning-brief-1-november-2026"
+   "url": "https://andmagazine.substack.com/p/morning-brief-1-november-2026",
+   "date": "2026-11-01",
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s20",
-   "title": "Bytes Europe: 이번 주 시장 변수 (11/1)",
-   "url": "https://www.byteseu.com/2490612/"
+   "publisher": "Bytes Europe",
+   "title": "이번 주 시장 변수 (11/1)",
+   "url": "https://www.byteseu.com/2490612/",
+   "date": "2026-11-01",
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s21",
-   "title": "Dunyo: 미·러·우 아부다비 협상 11월 상반기 (10/26)",
-   "url": "https://dunyo.info/en/news/rossiya-ssha-i-ukraina-gotovyatsya-k-peregovoram-v-nachale-noyabrya-v-abu"
+   "publisher": "Dunyo",
+   "title": "미·러·우 아부다비 협상 11월 상반기 (10/26)",
+   "url": "https://dunyo.info/en/news/rossiya-ssha-i-ukraina-gotovyatsya-k-peregovoram-v-nachale-noyabrya-v-abu",
+   "date": "2026-10-26",
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s22",
-   "title": "PBS/AP: 이란 지도부 '미 유권자가 전쟁 거부' (11/4)",
-   "url": "https://www.pbs.org/newshour/world/iranian-leaders-say-midterm-results-show-u-s-voters-have-rejected-trumps-war"
+   "publisher": "PBS/AP",
+   "title": "이란 지도부 '미 유권자가 전쟁 거부' (11/4)",
+   "url": "https://www.pbs.org/newshour/world/iranian-leaders-say-midterm-results-show-u-s-voters-have-rejected-trumps-war",
+   "date": "2026-11-04",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s23",
-   "title": "ABC7: 2026 미 중간선거 라이브 (민주당 상·하원 탈환)",
-   "url": "https://abc7news.com/live-updates/midterm-elections-2026-live-updates-election-results-key-races-us/20001292/"
+   "publisher": "ABC7",
+   "title": "2026 미 중간선거 라이브 (민주당 상·하원 탈환)",
+   "url": "https://abc7news.com/live-updates/midterm-elections-2026-live-updates-election-results-key-races-us/20001292/",
+   "date": null,
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s24",
-   "title": "Al Jazeera: 헤르초그, 총선 결과 수용·조각 협의 착수 (11/5)",
-   "url": "https://www.aljazeera.com/news/2026/11/5/israels-herzog-accepts-vote-results-opens-talks-on-forming-a-government"
+   "publisher": "Al Jazeera",
+   "title": "헤르초그, 총선 결과 수용·조각 협의 착수 (11/5)",
+   "url": "https://www.aljazeera.com/news/2026/11/5/israels-herzog-accepts-vote-results-opens-talks-on-forming-a-government",
+   "date": "2026-11-05",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s25",
-   "title": "FinanceFeeds: 브렌트 $98.32, 주간 -16% (11/7)",
-   "url": "https://financefeeds.com/brent-crude-oil-price-98-32-saturday-week-ahead-us-iran-deal-bets-cpi-10-november-bull-105-bear-93/"
+   "publisher": "FinanceFeeds",
+   "title": "브렌트 $98.32, 주간 -16% (11/7)",
+   "url": "https://financefeeds.com/brent-crude-oil-price-98-32-saturday-week-ahead-us-iran-deal-bets-cpi-10-november-bull-105-bear-93/",
+   "date": "2026-11-07",
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s26",
-   "title": "House of Saud: IRGC 호르무즈 기뢰 피격 주장 (11/6)",
-   "url": "https://houseofsaud.com/irgc-tankers-hormuz-nov6/"
+   "publisher": "House of Saud",
+   "title": "IRGC 호르무즈 기뢰 피격 주장 (11/6)",
+   "url": "https://houseofsaud.com/irgc-tankers-hormuz-nov6/",
+   "date": "2026-11-06",
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s27",
-   "title": "Stars and Stripes: 북한 신형 방공미사일·다종 미사일 발사 (11/5)",
-   "url": "https://www.stripes.com/theaters/asia_pacific/2026-11-05/north-korea-missile-technology-diplomacy-23369224.html"
+   "publisher": "Stars and Stripes",
+   "title": "북한 신형 방공미사일·다종 미사일 발사 (11/5)",
+   "url": "https://www.stripes.com/theaters/asia_pacific/2026-11-05/north-korea-missile-technology-diplomacy-23369224.html",
+   "date": "2026-11-05",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s28",
-   "title": "The New Arab: 아부다비 미·러·우 협상 11/10–11 (11/3)",
-   "url": "https://www.newarab.com/news/us-mediate-ukraine-russia-talks-abu-dhabi-next-week-envoy"
+   "publisher": "The New Arab",
+   "title": "아부다비 미·러·우 협상 11/10–11 (11/3)",
+   "url": "https://www.newarab.com/news/us-mediate-ukraine-russia-talks-abu-dhabi-next-week-envoy",
+   "date": "2026-11-03",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s29",
-   "title": "The National: 위트코프, 아부다비 협상 재개 (11/2)",
-   "url": "https://www.thenationalnews.com/news/us/2026/11/02/russia-ukraine-witkoff-abu-dhabi/"
+   "publisher": "The National",
+   "title": "위트코프, 아부다비 협상 재개 (11/2)",
+   "url": "https://www.thenationalnews.com/news/us/2026/11/02/russia-ukraine-witkoff-abu-dhabi/",
+   "date": "2026-11-02",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s30",
-   "title": "Asia Times: 북한이 다양한 미사일을 시험하는 이유 (11/7, 기고)",
-   "url": "https://asiatimes.com/2026/11/heres-why-pyongyang-is-testing-an-array-of-missile-capabilities/"
+   "publisher": "Asia Times",
+   "title": "북한이 다양한 미사일을 시험하는 이유 (11/7, 기고)",
+   "url": "https://asiatimes.com/2026/11/heres-why-pyongyang-is-testing-an-array-of-missile-capabilities/",
+   "date": "2026-11-07",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s31",
-   "title": "CBS News: 미·이란 전쟁 라이브 (바레인 요격, 11/15)",
-   "url": "https://www.cbsnews.com/live-updates/us-iran-war-trump-nuclear-material-no-deal/"
+   "publisher": "CBS News",
+   "title": "미·이란 전쟁 라이브 (바레인 요격, 11/15)",
+   "url": "https://www.cbsnews.com/live-updates/us-iran-war-trump-nuclear-material-no-deal/",
+   "date": null,
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s32",
-   "title": "Gulf News: 튀르키예·카타르 방위협정, 호르무즈 통항 -65% (11/14)",
-   "url": "https://gulfnews.com/world/mena/us-israel-iran-war-turkey-qatar-sign-defence-pact-as-trump-warns-tehran-hormuz-risks-persist-1.500745854"
+   "publisher": "Gulf News",
+   "title": "튀르키예·카타르 방위협정, 호르무즈 통항 -65% (11/14)",
+   "url": "https://gulfnews.com/world/mena/us-israel-iran-war-turkey-qatar-sign-defence-pact-as-trump-warns-tehran-hormuz-risks-persist-1.500745854",
+   "date": "2026-11-14",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s33",
-   "title": "Al Jazeera: 카타르 총리-트럼프 회담, 미·이란 협상 현황 (11/9)",
-   "url": "https://www.aljazeera.com/news/2026/11/9/qatar-pm-to-meet-trump-whats-the-latest-on-us-iran-negotiations"
+   "publisher": "Al Jazeera",
+   "title": "카타르 총리-트럼프 회담, 미·이란 협상 현황 (11/9)",
+   "url": "https://www.aljazeera.com/news/2026/11/9/qatar-pm-to-meet-trump-whats-the-latest-on-us-iran-negotiations",
+   "date": "2026-11-09",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s34",
-   "title": "FinanceFeeds: 브렌트 $95.84, 2주 연속 하락 (11/14)",
-   "url": "https://financefeeds.com/brent-crude-oil-price-95-84-saturday-week-ahead-second-weekly-loss-bull-98-bear-91/"
+   "publisher": "FinanceFeeds",
+   "title": "브렌트 $95.84, 2주 연속 하락 (11/14)",
+   "url": "https://financefeeds.com/brent-crude-oil-price-95-84-saturday-week-ahead-second-weekly-loss-bull-98-bear-91/",
+   "date": "2026-11-14",
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s35",
-   "title": "Al Jazeera: 헤르초그, 아이젠코트에 조각 위임 (11/7)",
-   "url": "https://www.aljazeera.com/news/2026/11/7/israels-president-picks-eisenkot-over-netanyahu-to-form-next-government"
+   "publisher": "Al Jazeera",
+   "title": "헤르초그, 아이젠코트에 조각 위임 (11/7)",
+   "url": "https://www.aljazeera.com/news/2026/11/7/israels-president-picks-eisenkot-over-netanyahu-to-form-next-government",
+   "date": "2026-11-07",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s36",
-   "title": "Al Jazeera: 아부다비 협상, 포로교환 합의로 종료 (11/11)",
-   "url": "https://www.aljazeera.com/news/2026/11/11/russia-ukraine-talks-in-abu-dhabi-end-with-prisoner-exchange-agreement"
+   "publisher": "Al Jazeera",
+   "title": "아부다비 협상, 포로교환 합의로 종료 (11/11)",
+   "url": "https://www.aljazeera.com/news/2026/11/11/russia-ukraine-talks-in-abu-dhabi-end-with-prisoner-exchange-agreement",
+   "date": "2026-11-11",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s37",
-   "title": "Euronews: 아부다비 협상 종료, 미 특사 푸틴 면담 예정 (11/11)",
-   "url": "https://www.euronews.com/2026/11/11/abu-dhabi-peace-talks-end-with-prisoner-exchange-agreement-as-us-envoys-prepare-to-meet-pu"
+   "publisher": "Euronews",
+   "title": "아부다비 협상 종료, 미 특사 푸틴 면담 예정 (11/11)",
+   "url": "https://www.euronews.com/2026/11/11/abu-dhabi-peace-talks-end-with-prisoner-exchange-agreement-as-us-envoys-prepare-to-meet-pu",
+   "date": "2026-11-11",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s38",
-   "title": "The National: 중국, 희토류 수출통제 유예 2개월 연장 (11/9)",
-   "url": "https://www.thenationalnews.com/news/us/2026/11/09/china-extends-pause-on-rare-earth-export-curbs-for-two-months/"
+   "publisher": "The National",
+   "title": "중국, 희토류 수출통제 유예 2개월 연장 (11/9)",
+   "url": "https://www.thenationalnews.com/news/us/2026/11/09/china-extends-pause-on-rare-earth-export-curbs-for-two-months/",
+   "date": "2026-11-09",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s39",
-   "title": "Korea Herald: 북한 APEC 불참·북미대화 가능성 낮아 (11/12)",
-   "url": "https://www.koreaherald.com/article/10935019"
+   "publisher": "Korea Herald",
+   "title": "북한 APEC 불참·북미대화 가능성 낮아 (11/12)",
+   "url": "https://www.koreaherald.com/article/10935019",
+   "date": "2026-11-12",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s40",
-   "title": "JoongAng Daily: 트럼프 APEC서 시진핑·푸틴 회동, 북한 일정 없어 (11/14)",
-   "url": "https://www.koreajoongangdaily.com/korea/trump-to-meet-xi-putin-in-china-but-no-north-korea-talks-planned/12972895"
+   "publisher": "Korea JoongAng Daily",
+   "title": "트럼프 APEC서 시진핑·푸틴 회동, 북한 일정 없어 (11/14)",
+   "url": "https://www.koreajoongangdaily.com/korea/trump-to-meet-xi-putin-in-china-but-no-north-korea-talks-planned/12972895",
+   "date": "2026-11-14",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s41",
-   "title": "Fox News: 이란, 위협 속 사찰 거부 (11/13)",
-   "url": "https://www.foxnews.com/live-news/oil-prices-war-strikes-donald-trump-iran-11-13-26.amp"
+   "publisher": "Fox News",
+   "title": "이란, 위협 속 사찰 거부 (11/13)",
+   "url": "https://www.foxnews.com/live-news/oil-prices-war-strikes-donald-trump-iran-11-13-26.amp",
+   "date": "2026-11-13",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s42",
-   "title": "RFE/RL: 트럼프·시진핑·푸틴 첫 3자회담, 4개항 선언 (11/19)",
-   "url": "https://www.rferl.org/a/trump-and-putin-hold-brief-apec-meeting/33901539.html"
+   "publisher": "RFE/RL",
+   "title": "트럼프·시진핑·푸틴 첫 3자회담, 4개항 선언 (11/19)",
+   "url": "https://www.rferl.org/a/trump-and-putin-hold-brief-apec-meeting/33901539.html",
+   "date": "2026-11-19",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s43",
-   "title": "RFE/RL: 3자 정상회담 4가지 시사점 (11/19)",
-   "url": "https://www.rferl.org/a/trump-xi-putin-summit-four-key-takeaways/33902100.html"
+   "publisher": "RFE/RL",
+   "title": "3자 정상회담 4가지 시사점 (11/19)",
+   "url": "https://www.rferl.org/a/trump-xi-putin-summit-four-key-takeaways/33902100.html",
+   "date": "2026-11-19",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s44",
-   "title": "CBS News: APEC 3자 회동, 성과 미미 (11/19)",
-   "url": "https://www.cbsnews.com/news/trump-xi-putin-china-apec-summit/"
+   "publisher": "CBS News",
+   "title": "APEC 3자 회동, 성과 미미 (11/19)",
+   "url": "https://www.cbsnews.com/news/trump-xi-putin-china-apec-summit/",
+   "date": "2026-11-19",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s45",
-   "title": "NK News: 이재명-푸틴 첫 회동, 한반도 긴장 논의 (11/19)",
-   "url": "https://www.nknews.org/2026/11/lee-putin-discuss-north-korea-and-peninsula-tensions-in-first-meeting-seoul/"
+   "publisher": "NK News",
+   "title": "이재명-푸틴 첫 회동, 한반도 긴장 논의 (11/19)",
+   "url": "https://www.nknews.org/2026/11/lee-putin-discuss-north-korea-and-peninsula-tensions-in-first-meeting-seoul/",
+   "date": "2026-11-19",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s46",
-   "title": "UA.NEWS: 크렘린 '포로교환 준비 최종 단계' (11/19)",
-   "url": "https://ua.news/en/war-vs-rf/kreml-zaiaviv-pro-finalnii-etap-pidgotovki-obminu-polonenimi-z-ukrayinoiu"
+   "publisher": "UA.NEWS",
+   "title": "크렘린 '포로교환 준비 최종 단계' (11/19)",
+   "url": "https://ua.news/en/war-vs-rf/kreml-zaiaviv-pro-finalnii-etap-pidgotovki-obminu-polonenimi-z-ukrayinoiu",
+   "date": "2026-11-19",
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s47",
-   "title": "Euronews: 이란, 바레인 미군기지 공격·봉쇄 돌파 준비 (11/21)",
-   "url": "https://www.euronews.com/2026/11/21/iran-attacks-us-bases-in-bahrain-as-its-tankers-get-ready-to-break-the-us-blockade"
+   "publisher": "Euronews",
+   "title": "이란, 바레인 미군기지 공격·봉쇄 돌파 준비 (11/21)",
+   "url": "https://www.euronews.com/2026/11/21/iran-attacks-us-bases-in-bahrain-as-its-tankers-get-ready-to-break-the-us-blockade",
+   "date": "2026-11-21",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s48",
-   "title": "ABC News: 호르무즈 공격, 전쟁 이후 최고 수준 (11/21)",
-   "url": "https://abcnews.com/International/strait-hormuz-attacks-increased-highest-level-iran-war/story?id=138304456"
+   "publisher": "ABC News",
+   "title": "호르무즈 공격, 전쟁 이후 최고 수준 (11/21)",
+   "url": "https://abcnews.com/International/strait-hormuz-attacks-increased-highest-level-iran-war/story?id=138304456",
+   "date": "2026-11-21",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s49",
-   "title": "Gulf News: 중동 전쟁 라이브 (11/22)",
-   "url": "https://gulfnews.com/uae/middle-east-war-trump-says-iran-wants-deal-but-terms-are-unacceptable-1.500755788"
+   "publisher": "Gulf News",
+   "title": "중동 전쟁 라이브 (11/22)",
+   "url": "https://gulfnews.com/uae/middle-east-war-trump-says-iran-wants-deal-but-terms-are-unacceptable-1.500755788",
+   "date": "2026-11-22",
+   "type": "news",
+   "tier": "C",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   },
   {
    "id": "s50",
-   "title": "FinanceFeeds: 브렌트 $92.57, 3주 연속 하락·OPEC+ 11/29 (11/22)",
-   "url": "https://financefeeds.com/brent-crude-oil-price-92-57-sunday-week-ahead-opec-plus-29-november-2027-quotas-bull-97-bear-88/"
+   "publisher": "FinanceFeeds",
+   "title": "브렌트 $92.57, 3주 연속 하락·OPEC+ 11/29 (11/22)",
+   "url": "https://financefeeds.com/brent-crude-oil-price-92-57-sunday-week-ahead-opec-plus-29-november-2027-quotas-bull-97-bear-88/",
+   "date": "2026-11-22",
+   "type": "blog",
+   "tier": "D",
+   "checked": null,
+   "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
   }
- ]
+ ],
+ "excludedSources": [
+  {
+   "url": "https://sourcenm.com/2026/11/12/repub/us-senators-demand-end-to-iran-war-funding-in-bill-averting-shutdown/",
+   "publisher": "Source NM",
+   "reason": "원문 열람 실패"
+  },
+  {
+   "url": "https://sudantribune.com/article/320623",
+   "publisher": "Sudan Tribune",
+   "reason": "원문 열람 실패"
+  },
+  {
+   "url": "https://www.newkerala.com/news/a/us-eia-sees-brent-crude-prices-falling-usd-950.htm",
+   "publisher": "NewKerala",
+   "reason": "원문 열람 실패"
+  },
+  {
+   "url": "https://www.zawya.com/en/news/global-markets/goldman-sachs-says-gulf-oil-flow-recovery-uncertain-amid-renewed-attacks-uq0z4zjh",
+   "publisher": "Zawya",
+   "reason": "제목·날짜 없음, 골드만 수치가 다른 보도와 충돌"
+  }
+ ],
+ "forecasts": {
+  "unit": "달러/배럴",
+  "items": [
+   {
+    "org": "EIA",
+    "src": "r24",
+    "horizon": "2026년 11–12월",
+    "v": 100
+   },
+   {
+    "org": "골드만삭스",
+    "src": "r25",
+    "horizon": "2026년 12월",
+    "v": 90
+   },
+   {
+    "org": "EIA",
+    "src": "r24",
+    "horizon": "2027년 평균",
+    "v": 86
+   },
+   {
+    "org": "골드만삭스",
+    "src": "r25",
+    "horizon": "2027년 평균",
+    "v": 80
+   },
+   {
+    "org": "EIA",
+    "src": "r24",
+    "horizon": "2027년 4분기",
+    "v": 77
+   }
+  ]
+ }
 }
