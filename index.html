@@ -269,6 +269,7 @@ svg .lbl{fill:var(--ink);font-weight:650}
 .qc blockquote::before{content:'“';font-size:30px;line-height:0;vertical-align:-10px;margin-right:2px;color:var(--ink-3)}
 .qc .who{font-size:12.5px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
 .qc .who b{color:var(--ink)}
+.rr{padding:12px 0;border-top:1px solid var(--line)}.rr:first-child{border-top:0}.rm{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.rtk{font-size:14px;line-height:1.6;margin:4px 0}.rl{background:none;border:0;padding:0;font:inherit;font-size:12px;color:var(--ink-3);cursor:pointer;text-align:left}
 .qg{grid-column:1/-1;margin:6px 0 0;font-size:15px}
 .rbr .more{margin-top:auto}
 .st{font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2)}
@@ -281,7 +282,7 @@ svg .lbl{fill:var(--ink);font-weight:650}
 
 <header class="top"><div class="wrap">
   <div class="logo"><i>GR</i>글로벌 지정학 레이더</div>
-  <nav class="nav" id="nav"><a href="#overview">개요</a><a href="#brief">지역 브리핑</a><a href="#bluf">핵심 판단</a><a href="#voices">전문가 시각</a><a href="#index">히트맵</a><a href="#scen">시나리오</a><a href="#timeline">타임라인</a><a href="#energy">에너지</a><a href="#reports">기관 시각</a><a href="#korea">한국 영향</a><a href="#audit">출처·방법론</a></nav>
+  <nav class="nav" id="nav"><a href="#overview">개요</a><a href="#brief">지역 브리핑</a><a href="#bluf">핵심 판단</a><a href="#voices">전문가 시각</a><a href="#scen">시나리오</a><a href="#energy">에너지</a><a href="#reports">기관 시각</a><a href="#korea">한국 영향</a><a href="#audit">출처·방법론</a></nav>
   <button class="iconbtn" id="theme" aria-label="화면 테마 전환">다크 모드</button>
 </div></header>
 
@@ -298,8 +299,7 @@ svg .lbl{fill:var(--ink);font-weight:650}
     <div class="grid g-map">
       <div class="card" style="padding:14px 14px 10px"><div class="filters" id="mapf" style="margin:0 0 8px"></div><div id="map"></div><div class="legend" id="mapLeg" style="margin:6px 4px 0"></div><div class="hl" id="hl"></div></div>
       <div class="grid" style="align-content:start">
-        <div class="card" id="gauge"></div>
-        <div class="card"><h3>지역 위험 점수</h3><p class="sub">막대 = 이번 주 점수 · 누르면 상세</p><div id="rbars"></div></div>
+                <div class="card"><h3>지역 위험 점수</h3><p class="sub">막대 = 이번 주 점수 · 누르면 상세</p><div id="rbars"></div></div>
       </div>
     </div>
   </section>
@@ -319,23 +319,9 @@ svg .lbl{fill:var(--ink);font-weight:650}
     <div class="grid g-3" id="quotes"></div>
   </section>
 
-  <section id="index">
-    <div class="sh"><div><h2>위험 히트맵</h2><p>색이 진할수록 고위험</p></div></div>
-    <div class="grid g-2">
-      <div class="card"><h3>8주 추이</h3><p class="sub">지역 × 주간 점수</p><div id="hmTrend"></div></div>
-      <div class="card"><h3>이번 주 점수 구성</h3><p class="sub">지역 × 구성요소 원점수 (괄호는 가중치)</p><div id="hmComp"></div></div>
-    </div>
-    <div class="legend" id="hmLeg" style="margin-top:10px"></div>
-  </section>
-
   <section id="scen">
     <div class="sh"><div><h2>시나리오 (12월 말까지)</h2><p>막대 폭 = 확률. 아래 점은 선행 지표: <span class="pip pip-충족"></span>충족 <span class="pip pip-부분"></span>부분 <span class="pip pip-미충족"></span>미충족 · 누르면 근거</p></div></div>
     <div class="card"><div class="legend" id="scLeg"></div><div id="scenBars"></div></div>
-  </section>
-
-  <section id="timeline">
-    <div class="sh"><div><h2>사건 타임라인</h2><p>최근 60일. 점 크기·색 = 심각도</p></div></div>
-    <div class="card"><div class="legend" id="tlLeg"></div><div id="tl"></div></div>
   </section>
 
   <section id="energy">
@@ -348,10 +334,9 @@ svg .lbl{fill:var(--ink);font-weight:650}
   </section>
 
   <section id="reports">
-    <div class="sh"><div><h2>기관 시각·리포트</h2><p>점·타일 클릭 시 원문 요지와 링크 표시</p></div></div>
+    <div class="sh"><div><h2>기관 시각·최신 리포트</h2><p>쟁점별 입장 분포 · 최근 2주 A·B등급 리포트 요지</p></div></div>
     <div class="card" style="margin-bottom:16px"><h3>쟁점별 기관 시각 분포</h3><div id="views"></div></div>
-    <div class="filters" id="repf"></div>
-    <div class="tiles" id="rep"></div>
+    <div class="card"><h3>최신 핵심 리포트</h3><div id="rep"></div></div>
   </section>
 
   <section id="korea">
@@ -361,18 +346,10 @@ svg .lbl{fill:var(--ink);font-weight:650}
     <div class="card" style="margin-top:16px"><h3>다가오는 일정</h3><div id="upcoming"></div></div>
   </section>
 
-  <section id="rel">
-    <div class="sh"><div><h2>주요국 관계 지형</h2><p>칸에 마우스를 올리면 근거 표시</p></div></div>
-    <div class="card"><div class="legend" id="relLeg"></div><div id="relm" style="overflow-x:auto"></div></div>
-  </section>
-
   <section id="audit">
     <div class="sh"><div><h2>출처 감사·방법론</h2></div></div>
     <div class="grid g-3" id="auditTiles"></div>
-    <div class="grid g-2" style="margin-top:16px">
-      <div class="card"><h3>출처 유형 × 신뢰 등급</h3><div class="legend" id="audLeg"></div><div id="aud"></div></div>
-      <div class="card"><h3>점수 산출 방식</h3><div id="methodViz"></div><details class="more"><summary>방법론 전문</summary><div id="method"></div></details></div>
-    </div>
+    <details class="card" style="margin-top:16px"><summary style="cursor:pointer;font-weight:700">점수 산출 방식</summary><div id="method" style="margin-top:10px"></div></details>
     <details class="card" style="margin-top:16px"><summary style="cursor:pointer;font-weight:700">전체 출처 목록과 검증 제외 자료</summary>
       <div style="display:flex;justify-content:flex-end;margin-top:10px"><input class="search" id="q" placeholder="발행처·제목 검색"></div>
       <div class="filters" id="srcf" style="margin-top:10px"></div>
@@ -490,7 +467,7 @@ function renderAll(){
   const secs=[...document.querySelectorAll('main section')];const links=[...document.querySelectorAll('#nav a')];
   addEventListener('scroll',debounce(()=>{let cur=secs[0].id;secs.forEach(s=>{if(s.getBoundingClientRect().top<120)cur=s.id});links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur))},50));
 }
-function renderCharts(){renderGauge();renderHeat();renderMethodViz();renderMap();renderTimeline();renderBrent();renderFC();renderViews();renderRel();renderAuditChart()}
+function renderCharts(){renderMap();renderBrent();renderFC();renderViews()}
 
 function hover(svg,data,x,y,w,hh,fmt){
   const g=svg.append('g').style('display','none');g.append('line').attr('class','ax').attr('y1',0).attr('y2',hh);const c=g.append('circle').attr('r',4).attr('fill',css('--ink'));
@@ -498,13 +475,13 @@ function hover(svg,data,x,y,w,hh,fmt){
 }
 function riskColor(v){return d3.interpolateRgb(css('--risk-0'),css('--risk-1'))(Math.max(0,Math.min(1,(v-30)/70)))}
 // ---------- map
-let mapF={days:30,sev:1,hideD:false};
+let mapF={days:30,sev:1,hideD:true};
 function renderMapFilters(){
   const el=$('#mapf');
   el.innerHTML=`<span class="flabel">기간</span><div class="seg-ctl" id="fdays">${[7,30,60].map(d=>`<button data-v="${d}" class="${mapF.days===d?'on':''}">${d}일</button>`).join('')}</div>
    <span class="flabel">심각도</span><div class="seg-ctl" id="fsev">${[[1,'전체'],[2,'2 이상'],[3,'3만']].map(([v,t])=>`<button data-v="${v}" class="${mapF.sev===v?'on':''}">${t}</button>`).join('')}</div>
    <span class="flabel">출처 등급</span><div class="seg-ctl" id="fver"><button data-v="0" class="${!mapF.hideD?'on':''}">전체</button><button data-v="1" class="${mapF.hideD?'on':''}">D등급만 근거인 사건 제외</button></div>`;
-  el.querySelectorAll('#fver button').forEach(b=>b.onclick=()=>{mapF.hideD=b.dataset.v==='1';renderMapFilters();renderMap();renderTimeline()});
+  el.querySelectorAll('#fver button').forEach(b=>b.onclick=()=>{mapF.hideD=b.dataset.v==='1';renderMapFilters();renderMap()});
   el.querySelectorAll('#fdays button').forEach(b=>b.onclick=()=>{mapF.days=+b.dataset.v;renderMapFilters();renderMap()});
   el.querySelectorAll('#fsev button').forEach(b=>b.onclick=()=>{mapF.sev=+b.dataset.v;renderMapFilters();renderMap()});
 }
@@ -573,7 +550,7 @@ function renderFC(){
       .on('mousemove',e=>showTip(e,`<b>${esc(d.org)}</b> · ${esc(d.horizon)}<br>$${d.v}<br><span class="k">${esc(SRC[d.src]?.publisher)} (${SRC[d.src]?.tier})</span>`)).on('mouseleave',hideTip).on('click',()=>openSource(d.src));
       svg.append('text').attr('x',x(d.v)).attr('y',y-10).attr('text-anchor','middle').attr('class','lbl').text('$'+d.v)})});
   $('#fcnote').innerHTML=`<div class="legend" style="margin-top:6px">${orgs.map(o=>`<span><i style="background:${oc(o)};border-radius:50%"></i>${esc(o)}</span>`).join('')}<span>가격 전망 없음: IEA ${gdots(['r22'])} J.P. Morgan ${gdots(['r26'])}</span></div>`;
-  $('#kpis').innerHTML=(D.themes.energy.kpis||[]).map(k=>`<div class="card kpc" title="${esc(k.sub)}"><div class="mini">${esc(k.label)} ${gdots([k.src])}</div><div class="kv2">${esc(k.value)}</div>${k.pct!=null?`<div class="rt" style="margin-top:6px"><i style="width:${k.pct}%;background:var(--s1)"></i></div><div class="mini">전쟁 전 대비 ${k.pct}%</div>`:''}</div>`).join('');
+  $('#kpis').innerHTML=(D.themes.energy.kpis||[]).filter(k=>SRC[k.src]?.tier!=='D').map(k=>`<div class="card kpc" title="${esc(k.sub)}"><div class="mini">${esc(k.label)} ${gdots([k.src])}</div><div class="kv2">${esc(k.value)}</div>${k.pct!=null?`<div class="rt" style="margin-top:6px"><i style="width:${k.pct}%;background:var(--s1)"></i></div><div class="mini">전쟁 전 대비 ${k.pct}%</div>`:''}</div>`).join('');
 }
 
 // ---------- views spectrum
@@ -717,12 +694,9 @@ function renderScen(){
 let repF='all';
 function initials(p){const s=shortPub(p).replace(/[^A-Za-z0-9가-힣&\s.]/g,'');const w=s.split(/\s+/).filter(Boolean);return (w.length>1?w.slice(0,3).map(x=>x[0]).join(''):s.slice(0,3)).toUpperCase()}
 function renderReports(){
-  const types=D.method.types.filter(t=>t.id!=='blog');const all=D.sources.filter(s=>s.checked&&s.takeaway);
-  $('#repf').innerHTML=`<div class="seg-ctl">${[['all','전체'],...types.map(t=>[t.id,t.name])].map(([v,t])=>`<button data-v="${v}" class="${repF===v?'on':''}"><i class="dotc" style="background:${v==='all'?'var(--ink-3)':`var(${TYPEC[v]})`}"></i>${t} ${v==='all'?all.length:all.filter(s=>s.type===v).length}</button>`).join('')}</div>`;
-  $('#repf').querySelectorAll('button').forEach(b=>b.onclick=()=>{repF=b.dataset.v;renderReports()});
-  const list=(repF==='all'?all:all.filter(s=>s.type===repF)).sort((a,b)=>({A:0,B:1,C:2,D:3}[a.tier]-{A:0,B:1,C:2,D:3}[b.tier])||(b.date||'').localeCompare(a.date||''));
-  $('#rep').innerHTML=list.map(s=>`<button class="tl2 cite" data-s="${s.id}"><span class="lg" style="background:var(${TYPEC[s.type]})">${esc(initials(s.publisher))}</span><span class="tb"><span class="tp">${esc(shortPub(s.publisher))} <span class="tier ${s.tier}">${s.tier}</span></span><span class="tt2">${esc(s.title)}</span><span class="td">${s.date?md(s.date):'날짜 미표시'} · ${(s.regions||[]).map(SN).join('·')}</span></span></button>`).join('');
-  $('#rep').querySelectorAll('.tl2').forEach(n=>{const s=SRC[n.dataset.s];n.onmousemove=e=>showTip(e,`<b>${esc(s.publisher)}</b><br>${esc(s.takeaway)}`);n.onmouseleave=hideTip});
+  const end=D.generatedAt.slice(0,10);const lim=new Date(new Date(end)-14*864e5).toISOString().slice(0,10);
+  const list=D.sources.filter(s=>['A','B'].includes(s.tier)&&s.type!=='data'&&s.date&&s.date>=lim&&s.takeaway).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,10);
+  $('#rep').innerHTML=list.map(s=>`<div class="rr"><div class="rm"><span class="tier ${s.tier}">${s.tier}</span><b>${esc(s.publisher)}</b><span class="mini">${md(s.date)} · ${(s.regions||[]).map(SN).join('·')}</span></div><div class="rtk">${esc(s.takeaway)}</div><button class="cite rl" data-s="${s.id}">${esc(s.title)} ›</button></div>`).join('')||'<p class="mini">최근 2주 내 A·B등급 리포트 없음</p>';
 }
 // ---------- korea
 function renderKorea(){
