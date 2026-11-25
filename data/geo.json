@@ -1,5 +1,5 @@
 {
- "version": 2,
+ "version": 3,
  "title": "글로벌 지정학 레이더",
  "generatedAt": "2026-11-25T14:30:00Z",
  "nextUpdate": "2026-11-29T21:47:00Z",
@@ -4313,6 +4313,13 @@
  ],
  "upcoming": [
   {
+   "date": "2026-11-28",
+   "title": "대만 지방선거",
+   "region": "ea",
+   "kind": "선거",
+   "note": "2028년 총통선거 전초전"
+  },
+  {
    "date": "2026-11-29",
    "title": "OPEC+ 장관회의",
    "region": "me",
@@ -4320,20 +4327,19 @@
    "note": "2027년 생산 정책 결정"
   },
   {
-   "date": "2026-11-30",
-   "title": "러-우 대규모 포로교환",
+   "date": "2026-11-29",
+   "title": "스페인 조기총선",
    "region": "eu",
-   "kind": "휴전",
-   "note": "크렘린 \"최종 준비 단계\", 날짜 미정",
-   "tentative": true
+   "kind": "선거",
+   "note": "상·하원 동시"
   },
   {
    "date": "2026-12-06",
-   "title": "아이젠코트 조각 시한(28일)",
+   "title": "이스라엘 조각 시한",
    "region": "me",
    "kind": "정치",
-   "note": "11/8 위임 기준 추정, 14일 연장 가능",
-   "tentative": true
+   "note": "아이젠코트 28일 시한, 14일 연장 가능",
+   "tentative": false
   },
   {
    "date": "2026-12-11",
@@ -4348,6 +4354,14 @@
    "region": "am",
    "kind": "정치",
    "note": "12/14–15, 추가 무역 합의 가능성"
+  },
+  {
+   "date": "2026-12-27",
+   "title": "세르비아 대선",
+   "region": "eu",
+   "kind": "선거",
+   "note": "날짜 잠정",
+   "tentative": true
   },
   {
    "date": "2027-01-10",
@@ -6323,6 +6337,164 @@
     "me"
    ],
    "takeaway": "브렌트 11/23 종가 $89.37(전일 대비 -3.46%), 8월 말 이후 첫 $89 하회. 11/20 종가 $92.57 재확인."
+  },
+  {
+   "authors": null,
+   "figures": null,
+   "note": null,
+   "checked": "2026-11-25",
+   "id": "r45",
+   "publisher": "Al Jazeera (Reuters)",
+   "title": "Israel's Eisenkot secures first coalition partner in bid to form government",
+   "url": "https://www.aljazeera.com/news/2026/11/25/israels-eisenkot-secures-first-coalition-partner-in-bid-to-form-government",
+   "date": "2026-11-25",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "아이젠코트(야샤르 21석), 리베르만 이스라엘베이테이누(7석)와 첫 연정 합의. 연합 48석, 리쿠드 블록 53석, 아랍계 19석. 12/6 시한(14일 연장 가능), 실패 시 네타냐후에 기회. 민주당(8석)은 협상 중단."
+  },
+  {
+   "authors": null,
+   "figures": null,
+   "note": null,
+   "checked": "2026-11-25",
+   "id": "r46",
+   "publisher": "Al Jazeera",
+   "title": "Israel's president picks Eisenkot over Netanyahu to form next government",
+   "url": "https://www.aljazeera.com/news/2026/11/7/israels-president-picks-eisenkot-over-netanyahu-to-form-next-government",
+   "date": "2026-11-07",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "10/27 총선: 아이젠코트 연합 48석, 네타냐후 블록 53석, 아랍계 역대 최다 19석. 헤르초그 대통령, 아이젠코트에 조각권 부여(지지 67 대 46). 61석 필요, 실패 시 90일 내 재선거."
+  },
+  {
+   "authors": "Jay Ganglani",
+   "figures": null,
+   "note": null,
+   "checked": "2026-11-25",
+   "id": "r47",
+   "publisher": "Fortune",
+   "title": "Why Xi's brief APEC handshake with Takaichi reflects a frozen China-Japan relationship",
+   "url": "https://fortune.com/2026/11/24/takaichi-xi-apec-handshake-china-japan-tensions/",
+   "date": "2026-11-24",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "ea"
+   ],
+   "takeaway": "APEC 선전에서 시진핑-다카이치 악수만, 공식 회담 없음. 2025년 11월 대만 유사시 자위대 발언 이후 관계 동결 지속. 다카이치, 11/18 푸틴과 회담. 2025년 중·일 교역 약 3,040억 달러."
+  },
+  {
+   "authors": "Gavin Blackburn",
+   "figures": null,
+   "note": null,
+   "checked": "2026-11-25",
+   "id": "r48",
+   "publisher": "Euronews",
+   "title": "North Korea's leader highlights 'sovereignty' after rebuffing Trump offer for talks",
+   "url": "https://www.euronews.com/2026/11/23/north-koreas-leader-highlights-sovereignty-after-rebuffing-trump-offer-for-talks",
+   "date": "2026-11-23",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "ea"
+   ],
+   "takeaway": "트럼프의 APEC 계기 김정은 회동 시도 불발. 김정은, 러시아 등 신임 대사 신임장 직접 접수(이례적). \"패권·팽창 추구 안 함\", 주권·안보 수호하며 대외관계 확대 언급(KCNA)."
+  },
+  {
+   "authors": "Colin Zwirko",
+   "figures": null,
+   "note": null,
+   "checked": "2026-11-25",
+   "id": "r49",
+   "publisher": "NK News",
+   "title": "Kim Jong Un slams 'enemy' naval activities amid Trump's calls to meet in China",
+   "url": "https://www.nknews.org/2026/11/kim-jong-un-slams-enemy-naval-activities-amid-trumps-calls-to-meet-in-china/",
+   "date": "2026-11-19",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "ea"
+   ],
+   "takeaway": "김정은, 11/18 동해상 \"사악한 적들\"의 해군 활동 비난(KCNA). 11/17–18 함경남도 김정숙해군대학 등 현지지도. 같은 주 트럼프의 회동 제안에는 무응답."
+  },
+  {
+   "authors": null,
+   "figures": null,
+   "note": "상시 갱신 페이지로 발행일 표시 없음",
+   "checked": "2026-11-25",
+   "id": "r50",
+   "publisher": "Control Risks",
+   "title": "Geopolitical calendar",
+   "url": "https://www.controlrisks.com/our-thinking/geopolitical-calendar",
+   "date": null,
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "am",
+    "eu",
+    "me",
+    "ea"
+   ],
+   "takeaway": "12/1 영국 G20 의장국 인수, 12/14–15 G20 마이애미 정상회의(2008년 이후 첫 미국 개최), 2027/1/1 미국 G7 의장국, 1/16 나이지리아 총선."
+  },
+  {
+   "authors": null,
+   "figures": null,
+   "note": "PDF에 발행일 표시 없음(10월 데이터 기준)",
+   "checked": "2026-11-25",
+   "id": "r51",
+   "publisher": "J.P. Morgan Wealth Management",
+   "title": "Outlook 2027: The Price of Progress",
+   "url": "https://www.jpmorgan.com/content/dam/jpmorgan/documents/wealth-management/outlook-2027.pdf",
+   "date": null,
+   "type": "ib",
+   "tier": "B",
+   "regions": [
+    "me",
+    "am"
+   ],
+   "takeaway": "2026년 이란 분쟁과 호르무즈 봉쇄로 원유 90% 급등, 국방 재고·에너지 흐름 압박. 미 10년물 약 5%. 비용은 관세·세금·인플레·고금리로 분담될 것이라는 진단."
+  },
+  {
+   "authors": null,
+   "figures": null,
+   "note": "상시 갱신 페이지로 발행일 표시 없음",
+   "checked": "2026-11-25",
+   "id": "r52",
+   "publisher": "IFES ElectionGuide",
+   "title": "Upcoming Elections in Six Months",
+   "url": "https://www.electionguide.org/elections/type/upcoming/",
+   "date": null,
+   "type": "data",
+   "tier": "B",
+   "regions": [
+    "eu",
+    "am"
+   ],
+   "takeaway": "11/29 스페인 조기총선(상·하원), 11/29 스위스 국민투표, 12/27 세르비아 대선(잠정), 2027/1/16 나이지리아 총선."
+  },
+  {
+   "authors": null,
+   "figures": null,
+   "note": "위키 문서, 날짜 확인용 보조 출처",
+   "checked": "2026-11-25",
+   "id": "r53",
+   "publisher": "Wikipedia",
+   "title": "2026 Taiwanese local elections",
+   "url": "https://en.wikipedia.org/wiki/2026_Taiwanese_local_elections",
+   "date": null,
+   "type": "blog",
+   "tier": "D",
+   "regions": [
+    "ea"
+   ],
+   "takeaway": "11/28 대만 지방선거, 6개 직할시·16개 현시 단체장 등 11,051명 선출, 유권자 약 1,965만. 2028년 총통선거 전초전, 민진당은 입법원 과반 상실."
   }
  ],
  "excludedSources": [
@@ -6431,6 +6603,1099 @@
     "r42"
    ],
    "note": "한국 세율은 공개 시 즉시 반영 예정"
+  }
+ ],
+ "brief": {
+  "asOf": "2026-11-25",
+  "title": "걸프 전쟁 장기화·미 관세 공세 재개, 강대국 정상외교는 상징에 그쳐",
+  "lede": "현황: 미·이란은 봉쇄와 국지 보복을 반복하는 교착 상태, 11/23 호르무즈 기뢰 피격 주장까지 나옴. 미국은 11/25 301조 과잉생산 관세를 14개국에 제안(한국 포함). 미·중·러 3자회담은 구체 합의 없이 종료. 전망: 기관 다수는 연말까지 걸프 교착·러·우 소모전 지속, 대만 회색지대 압박 유지를 기본 시나리오로 봄. 유가는 공급 과잉으로 오히려 하락세."
+ },
+ "issues": [
+  {
+   "id": "gulf",
+   "rank": 1,
+   "title": "미·이란 전쟁과 호르무즈 봉쇄",
+   "cat": "전쟁·에너지",
+   "region": "me",
+   "countries": [
+    "미국",
+    "이란",
+    "바레인",
+    "사우디",
+    "카타르"
+   ],
+   "trend": "up",
+   "koreaImpact": "높음",
+   "summary": "봉쇄+국지 보복 교착, 11월 들어 공격 재격화",
+   "outShort": "연말까지 교착 지속 우세(55%), 확전 25%",
+   "now": "미 해상봉쇄(7/14 재개) 속 이란은 걸프 미군기지·선박 공격, 미국은 제한 보복으로 대응. 약 2개월 소강 뒤 11/17부터 재격화. 카타르 중재는 지속되나 진전 미공개.",
+   "latest": [
+    {
+     "date": "2026-11-24",
+     "text": "사우디 연합군, 예멘 호데이다항 소개 명령. 후티 전선 확대 신호",
+     "src": [
+      "r38"
+     ]
+    },
+    {
+     "date": "2026-11-23",
+     "text": "IRGC, 호르무즈 유조선 3척 기뢰 피격 주장(독립 확인 없음)",
+     "src": [
+      "r39",
+      "r38"
+     ]
+    },
+    {
+     "date": "2026-11-21",
+     "text": "이란, 바레인 미군기지 4곳 공격. 호르무즈 일대 공격 전쟁 이후 최고 수준",
+     "src": [
+      "s47",
+      "s48"
+     ]
+    },
+    {
+     "date": "2026-11-17",
+     "text": "미군, 이란 게쉼섬 IRGC 미사일기지 타격. 2개월 소강 종료",
+     "src": [
+      "r29",
+      "r30"
+     ]
+    }
+   ],
+   "outlook": [
+    {
+     "text": "12월 중 전면전 재개보다 봉쇄+국지 보복 교착 지속",
+     "likelihood": "가능성 높음",
+     "src": [
+      "r2",
+      "r1",
+      "r29",
+      "r6"
+     ]
+    },
+    {
+     "text": "브렌트 연말까지 $85–100 범위, 공급 회복이 공격 위험 상쇄",
+     "likelihood": "가능성 높음",
+     "src": [
+      "r22",
+      "r24",
+      "r25"
+     ]
+    }
+   ],
+   "scen": [
+    {
+     "name": "교착 지속",
+     "prob": 55,
+     "kind": "base",
+     "desc": "봉쇄 유지, 산발적 기지·선박 공격과 제한 보복 반복"
+    },
+    {
+     "name": "확전",
+     "prob": 25,
+     "kind": "worse",
+     "desc": "봉쇄 돌파 시도·미군 사상자 계기로 대규모 공습 재개"
+    },
+    {
+     "name": "단계적 합의",
+     "prob": 20,
+     "kind": "better",
+     "desc": "봉쇄 부분 해제와 해협 개방 맞교환"
+    }
+   ],
+   "horizon": "12월 말까지",
+   "impact": {
+    "world": [
+     {
+      "text": "호르무즈 통항 전쟁 전 대비 -65%(11/13)",
+      "src": [
+       "s32"
+      ]
+     },
+     {
+      "text": "그럼에도 브렌트 11/23 종가 $89.37, 8월 말 이후 최저. IEA는 4분기 공급 과잉 전환 전망",
+      "src": [
+       "r39",
+       "r22"
+      ]
+     },
+     {
+      "text": "2026년 원유 90% 급등, 국방 재고·에너지 흐름 압박",
+      "src": [
+       "r51"
+      ]
+     }
+    ],
+    "korea": [
+     {
+      "text": "원유·LNG 도입 핵심 경로, 확전 시 에너지 가격 급등 위험",
+      "src": [
+       "r26"
+      ]
+     },
+     {
+      "text": "유가 하락세는 물가 압력 완화 요인",
+      "src": [
+       "r39"
+      ]
+     }
+    ]
+   },
+   "views": [
+    {
+     "src": "r3",
+     "org": "CFR (린지)",
+     "stance": "경고",
+     "text": "미국에 이란을 굴복시킬 좋은 선택지 없음"
+    },
+    {
+     "src": "r2",
+     "org": "Chatham House",
+     "stance": "경고",
+     "text": "봉쇄가 양보로 이어질 가능성 낮아 무력충돌 재개 배제 불가"
+    },
+    {
+     "src": "r4",
+     "org": "Kpler",
+     "stance": "경고",
+     "text": "봉쇄 장기화일수록 이란의 확전 유인 증가"
+    },
+    {
+     "src": "r6",
+     "org": "ISW·AEI",
+     "stance": "신중",
+     "text": "이란은 제한적 공격을 정보전으로 증폭"
+    },
+    {
+     "src": "r1",
+     "org": "CSIS (바이먼)",
+     "stance": "신중",
+     "text": "결말은 승패보다 협상 타결로 수렴할 가능성"
+    },
+    {
+     "src": "r26",
+     "org": "J.P. Morgan AM",
+     "stance": "경고",
+     "text": "협상 결렬 시 2026년형 에너지 충격 재현 가능"
+    }
+   ],
+   "verdict": "기관 다수 판단: 어느 쪽도 결정적 승리 수단이 없어 교착 장기화. 이견: CSIS는 협상 수렴, Kpler·Chatham House는 봉쇄 장기화가 확전 위험을 키운다고 봄. 유가는 공급 과잉으로 지정학 위험을 덜 반영하는 상태.",
+   "next": [
+    {
+     "date": "2026-11-29",
+     "text": "OPEC+ 장관회의"
+    },
+    {
+     "date": "2026-12-11",
+     "text": "미 예산 시한(전쟁 예산 대치)"
+    }
+   ]
+  },
+  {
+   "id": "tariff",
+   "rank": 2,
+   "title": "미국 301조 과잉생산 관세",
+   "cat": "통상·관세",
+   "region": "am",
+   "countries": [
+    "미국",
+    "중국",
+    "한국",
+    "베트남",
+    "EU·일본·대만"
+   ],
+   "trend": "up",
+   "koreaImpact": "높음",
+   "summary": "11/25 14개국 관세 제안, 한국 포함·세율 미공개",
+   "outShort": "한국은 15% 상한 내 책정 가능성 높음",
+   "now": "USTR, 3월 개시한 16개국 과잉생산 301조 조사 결과로 14개국에 신규 관세 제안. 중국 추가 20%(일부 합계 45%), 베트남 20%. 한국·일본·EU·대만은 기존 합의 15% 상한과 일관되게 책정 방침, 세율은 미공개.",
+   "latest": [
+    {
+     "date": "2026-11-25",
+     "text": "USTR, 14개국 과잉생산 관세 제안. 멕시코·노르웨이 제외",
+     "src": [
+      "r34",
+      "r35"
+     ]
+    },
+    {
+     "date": "2026-11-25",
+     "text": "한국은 강제노동 관세 12.5%와 합산해 15% 상한 도달 전망, 철강·알루미늄·자동차 제외 전망(언론 보도)",
+     "src": [
+      "r42",
+      "r41"
+     ]
+    },
+    {
+     "date": "2026-07-24",
+     "text": "강제노동 301조 최종 결정, 한국 합계 12.5%까지 추가 관세",
+     "src": [
+      "r37"
+     ]
+    },
+    {
+     "date": "2026-03-11",
+     "text": "USTR, 한국 포함 16개국 과잉생산 301조 조사 개시",
+     "src": [
+      "r36"
+     ]
+    }
+   ],
+   "outlook": [
+    {
+     "text": "한국 세율은 한·미 합의 15% 상한 안에서 책정",
+     "likelihood": "가능성 높음",
+     "src": [
+      "r34",
+      "r35",
+      "r36",
+      "r37"
+     ]
+    },
+    {
+     "text": "의견수렴·청문회 거쳐 발효는 1월 이후",
+     "likelihood": "가능성 높음",
+     "src": [
+      "r34"
+     ]
+    }
+   ],
+   "scen": null,
+   "horizon": "1월까지",
+   "impact": {
+    "world": [
+     {
+      "text": "중국 추가 20%로 미·중 관세휴전(1/10 만료) 시험대",
+      "src": [
+       "r35"
+      ]
+     },
+     {
+      "text": "232조·강제노동 관세와는 중첩 적용 안 함",
+      "src": [
+       "r35"
+      ]
+     }
+    ],
+    "korea": [
+     {
+      "text": "세율·대상 품목 미공개로 업종별 부담 불확실",
+      "src": [
+       "r41"
+      ]
+     },
+     {
+      "text": "철강·알루미늄·자동차 제외 시 핵심 수출품 영향 제한(서울경제 보도, 미확정)",
+      "src": [
+       "r42"
+      ]
+     }
+    ]
+   },
+   "views": [
+    {
+     "src": "r36",
+     "org": "USTR",
+     "stance": "강경",
+     "text": "구조적 과잉생산을 불공정 관행으로 규정, 해당국과 협의"
+    },
+    {
+     "src": "r41",
+     "org": "Reuters",
+     "stance": "신중",
+     "text": "세율·면제 미공개, 7월 강제노동 관세가 선례"
+    },
+    {
+     "src": "r42",
+     "org": "서울경제",
+     "stance": "낙관",
+     "text": "한국은 15% 상한 도달 수준, 주력 품목 제외 전망"
+    }
+   ],
+   "verdict": "한국은 기존 15% 상한 합의 덕에 최악은 피할 전망이나 세율·품목 공개 전까지 불확실. 싱크탱크·IB 분석은 아직 부족해 다음 업데이트에서 보강 예정.",
+   "next": [
+    {
+     "date": "2026-12-14",
+     "text": "G20 마이애미 정상회의"
+    },
+    {
+     "date": "2027-01-10",
+     "text": "미·중 관세휴전 만료"
+    }
+   ]
+  },
+  {
+   "id": "ukraine",
+   "rank": 3,
+   "title": "러·우 전쟁과 평화협상",
+   "cat": "전쟁·외교",
+   "region": "eu",
+   "countries": [
+    "러시아",
+    "우크라이나",
+    "미국",
+    "EU"
+   ],
+   "trend": "up",
+   "koreaImpact": "중간",
+   "summary": "크림대교 공격 뒤 푸틴 \"협상 없다\", 포로교환만 진전",
+   "outShort": "연내 휴전 불발 가능성 높음, 소모전 65%",
+   "now": "우크라이나의 크림대교 타격 이후 푸틴은 \"공격 뒤엔 협상 없다\" 입장. 전선은 정체. 아부다비 협상에서 합의한 대규모 포로교환은 준비 단계, 일자 미정.",
+   "latest": [
+    {
+     "date": "2026-11-25",
+     "text": "우크라이나, 다음 포로교환 준비 완료 재확인",
+     "src": [
+      "r43"
+     ]
+    },
+    {
+     "date": "2026-11-19",
+     "text": "푸틴 \"크림대교 공격 이후 협상 없다\"",
+     "src": [
+      "s44"
+     ]
+    },
+    {
+     "date": "2026-11-18",
+     "text": "ISW: 양측 모두 전선 진격 없음, 푸틴은 전쟁을 강대국 거래로 확장",
+     "src": [
+      "r18"
+     ]
+    },
+    {
+     "date": "2026-11-17",
+     "text": "우크라이나, 미·유럽과 협상. 미 특사 \"진전\" 언급",
+     "src": [
+      "r19"
+     ]
+    }
+   ],
+   "outlook": [
+    {
+     "text": "연내 휴전 불성사, 포로교환 등 인도적 조치만 진전",
+     "likelihood": "가능성 높음",
+     "src": [
+      "r16",
+      "r17",
+      "r18",
+      "r19"
+     ]
+    }
+   ],
+   "scen": [
+    {
+     "name": "소모전 지속",
+     "prob": 65,
+     "kind": "base",
+     "desc": "전선 정체, 장거리 타격 교환, 포로교환 이행"
+    },
+    {
+     "name": "보복 공습 확대",
+     "prob": 25,
+     "kind": "worse",
+     "desc": "크림대교 공격 보복 대규모 공습, 협상 중단"
+    },
+    {
+     "name": "휴전 프레임",
+     "prob": 10,
+     "kind": "better",
+     "desc": "미·러·우 휴전 틀 합의"
+    }
+   ],
+   "horizon": "12월 말까지",
+   "impact": {
+    "world": [
+     {
+      "text": "협상이 종전에서 유럽 안보질서 재편 논의로 확대",
+      "src": [
+       "r17"
+      ]
+     },
+     {
+      "text": "독일 총리 \"얄타 방식으론 평화 불가\", 유럽 배제 우려",
+      "src": [
+       "s42"
+      ]
+     }
+    ],
+    "korea": [
+     {
+      "text": "북·러 군사협력 지속, 한국 방산 수출과 곡물·가스 가격에 영향",
+      "src": [
+       "r12"
+      ]
+     }
+    ]
+   },
+   "views": [
+    {
+     "src": "r16",
+     "org": "Carnegie Europe (리크)",
+     "stance": "경고",
+     "text": "러시아의 최대주의 요구가 종전 시도를 가로막음"
+    },
+    {
+     "src": "r17",
+     "org": "Carnegie (바우노프)",
+     "stance": "경고",
+     "text": "푸틴은 협상을 얄타식 유럽 재편 구상과 연결"
+    },
+    {
+     "src": "r8",
+     "org": "CFR (그레이엄)",
+     "stance": "경고",
+     "text": "3자회담 장면이 러시아를 강대국으로 인정해 준 효과"
+    },
+    {
+     "src": "r18",
+     "org": "ISW",
+     "stance": "신중",
+     "text": "전선 변화 없음, 전쟁을 강대국 관계의 일부로 제시"
+    }
+   ],
+   "verdict": "싱크탱크 시각은 비관 쪽으로 일치: 러시아 요구가 그대로인 한 연내 휴전은 어려움. 유일한 낙관 신호는 미 특사의 \"진전\" 언급과 포로교환 합의.",
+   "next": [
+    {
+     "date": "2026-12-14",
+     "text": "G20 정상회의"
+    }
+   ]
+  },
+  {
+   "id": "taiwan",
+   "rank": 4,
+   "title": "대만해협 회색지대 압박과 지방선거",
+   "cat": "군사 긴장·선거",
+   "region": "ea",
+   "countries": [
+    "중국",
+    "대만",
+    "미국",
+    "일본"
+   ],
+   "trend": "flat",
+   "koreaImpact": "높음",
+   "summary": "해경 순찰 상시화, 11/28 지방선거·국방 추경",
+   "outShort": "관세휴전 중에도 압박 유지·확대 가능성 높음",
+   "now": "중국은 미·중 관세휴전을 틈타 해경 순찰과 외교 고립으로 대만 압박을 유지. 대만은 11/20 국방 추경 NT$1,457억 통과, 11/28 지방선거는 2028년 총통선거 전초전.",
+   "latest": [
+    {
+     "date": "2026-11-20",
+     "text": "대만 입법원 국방 추경 NT$1,457억(약 46억 달러) 통과",
+     "src": [
+      "r40"
+     ]
+    },
+    {
+     "date": "2026-11-20",
+     "text": "중국 자금 수수 혐의로 지방선거 후보 기소",
+     "src": [
+      "r40"
+     ]
+    },
+    {
+     "date": "2026-11-19",
+     "text": "3자회담에서 대만 관련 성과 없음",
+     "src": [
+      "r8"
+     ]
+    }
+   ],
+   "outlook": [
+    {
+     "text": "관세휴전 기간(~1/10)에도 해경·회색지대 압박 유지 또는 확대",
+     "likelihood": "가능성 높음",
+     "src": [
+      "r10",
+      "r11",
+      "r15",
+      "r33"
+     ]
+    }
+   ],
+   "scen": [
+    {
+     "name": "관리된 긴장",
+     "prob": 60,
+     "kind": "base",
+     "desc": "휴전 유지, 회색지대 압박 수준"
+    },
+    {
+     "name": "압박 고조",
+     "prob": 30,
+     "kind": "worse",
+     "desc": "해경 상시 순찰, 검문·격리 시도"
+    },
+    {
+     "name": "북한 전략 도발",
+     "prob": 10,
+     "kind": "worse",
+     "desc": "ICBM급 발사 등"
+    }
+   ],
+   "horizon": "12월 말까지",
+   "scenNote": "동아시아 전체 시나리오 기준",
+   "impact": {
+    "world": [
+     {
+      "text": "반도체 공급망 핵심 지역, 격리·봉쇄 시 세계 공급 충격",
+      "src": [
+       "r11"
+      ]
+     }
+    ],
+    "korea": [
+     {
+      "text": "대만해협 위기 시 한국 반도체·해상 물류 직격",
+      "src": [
+       "r11"
+      ]
+     }
+    ]
+   },
+   "views": [
+    {
+     "src": "r11",
+     "org": "USCC",
+     "stance": "경고",
+     "text": "향후 24개월이 억지의 결정적 시기, 침공보다 격리·봉쇄 위험"
+    },
+    {
+     "src": "r15",
+     "org": "ASPI",
+     "stance": "경고",
+     "text": "중국은 휴전을 틈타 압박 강화, 대가는 미미"
+    },
+    {
+     "src": "r10",
+     "org": "CSIS",
+     "stance": "신중",
+     "text": "압박 지속 증가, 상시 감시와 대응 옵션 권고"
+    },
+    {
+     "src": "r33",
+     "org": "ACLED",
+     "stance": "신중",
+     "text": "대만 동쪽 순찰 상시화로 관할권 주장 정상화 시도"
+    }
+   ],
+   "verdict": "기관 판단 일치: 침공보다 회색지대 압박이 상수. 11/28 지방선거 결과가 중국의 대응 수위를 가늠할 변수.",
+   "next": [
+    {
+     "date": "2026-11-28",
+     "text": "대만 지방선거"
+    },
+    {
+     "date": "2027-01-10",
+     "text": "미·중 관세휴전 만료"
+    }
+   ]
+  },
+  {
+   "id": "bigthree",
+   "rank": 5,
+   "title": "미·중·러 3자 정상외교",
+   "cat": "강대국 외교",
+   "region": "ea",
+   "countries": [
+    "미국",
+    "중국",
+    "러시아"
+   ],
+   "trend": "flat",
+   "koreaImpact": "중간",
+   "summary": "첫 3자회담, 4개항 선언에 그침",
+   "outShort": "한반도·대만 정세 변화 없을 가능성 매우 높음",
+   "now": "11/19 APEC 선전에서 트럼프·시진핑·푸틴 첫 3자회담. 에너지·국제사법·핵전쟁 방지·유엔 개혁 4개항 선언, 구체 합의 없음. 미·중은 무역 위주 논의, 관세휴전은 1/10까지.",
+   "latest": [
+    {
+     "date": "2026-11-19",
+     "text": "3자회담 1시간여, 평화 선언 발표. 우크라이나 미포함",
+     "src": [
+      "r31",
+      "s42"
+     ]
+    },
+    {
+     "date": "2026-11-19",
+     "text": "이재명-푸틴 첫 회동(약 10분), 한반도 긴장 완화 공감",
+     "src": [
+      "r13",
+      "r32"
+     ]
+    }
+   ],
+   "outlook": [
+    {
+     "text": "상징적 선언에 그쳐 한반도·대만 정세 변화 없음",
+     "likelihood": "가능성 매우 높음",
+     "src": [
+      "r8",
+      "r9",
+      "r31",
+      "s43"
+     ]
+    },
+    {
+     "text": "한국의 대러 접근은 제한적 범위에 머묾",
+     "likelihood": "가능성 높음",
+     "src": [
+      "r12",
+      "r13"
+     ]
+    }
+   ],
+   "scen": null,
+   "horizon": "1월까지",
+   "impact": {
+    "world": [
+     {
+      "text": "강대국 3자 구도에 유럽 배제 우려 확산",
+      "src": [
+       "r17"
+      ]
+     }
+    ],
+    "korea": [
+     {
+      "text": "한·러 대화 재개, 다만 주한미군·대유럽 방산수출이 제약",
+      "src": [
+       "r12"
+      ]
+     }
+    ]
+   },
+   "views": [
+    {
+     "src": "r8",
+     "org": "CFR (도시)",
+     "stance": "신중",
+     "text": "실질 성과 거의 없음"
+    },
+    {
+     "src": "r9",
+     "org": "Foreign Policy",
+     "stance": "신중",
+     "text": "사실상 사진 촬영 기회"
+    },
+    {
+     "src": "r17",
+     "org": "Carnegie (바우노프)",
+     "stance": "경고",
+     "text": "얄타식 유럽 질서 재편 시도"
+    },
+    {
+     "src": "r12",
+     "org": "Carnegie (브라운)",
+     "stance": "신중",
+     "text": "한국의 대러 전환에는 한계"
+    }
+   ],
+   "verdict": "대다수 기관이 \"상징에 그침\"으로 평가. 소수 의견(Carnegie)은 강대국 거래로 유럽 질서를 바꾸려는 시도로 경계.",
+   "next": [
+    {
+     "date": "2026-12-14",
+     "text": "G20 마이애미 정상회의"
+    },
+    {
+     "date": "2027-01-10",
+     "text": "미·중 관세휴전 만료"
+    }
+   ]
+  },
+  {
+   "id": "nk",
+   "rank": 6,
+   "title": "북한, 대미 대화 거부와 다극 외교",
+   "cat": "핵·안보",
+   "region": "ea",
+   "countries": [
+    "북한",
+    "미국",
+    "러시아",
+    "한국"
+   ],
+   "trend": "flat",
+   "koreaImpact": "높음",
+   "summary": "트럼프 회동 제안 무응답, 러시아 밀착",
+   "outShort": "저강도 시험 지속, 대화 재개 가능성 낮음",
+   "now": "트럼프의 APEC 계기 회동 제안에 무응답. 김정은은 러시아 등 신임 대사를 직접 맞으며 \"주권 기반\" 대외관계 확대 강조. 11월 들어 ICBM급 발사는 없음.",
+   "latest": [
+    {
+     "date": "2026-11-23",
+     "text": "김정은, 러시아 등 신임 대사 신임장 직접 접수",
+     "src": [
+      "r48"
+     ]
+    },
+    {
+     "date": "2026-11-18",
+     "text": "김정은, 동해상 \"적\" 해군 활동 비난",
+     "src": [
+      "r49"
+     ]
+    },
+    {
+     "date": "2026-11-05",
+     "text": "신형 방공미사일 시험 발표",
+     "src": [
+      "r14"
+     ]
+    }
+   ],
+   "outlook": [
+    {
+     "text": "북·미 대화 재개는 어렵고 저강도 무기 시험 지속",
+     "likelihood": "가능성 높음",
+     "src": [
+      "r14",
+      "r48"
+     ]
+    }
+   ],
+   "scen": null,
+   "horizon": "연말까지",
+   "impact": {
+    "world": [
+     {
+      "text": "북·러 군사협력이 우크라이나 전쟁과 연동",
+      "src": [
+       "r12"
+      ]
+     }
+    ],
+    "korea": [
+     {
+      "text": "직접 안보 위협, 북·미 대화 공백 장기화",
+      "src": [
+       "r48"
+      ]
+     }
+    ]
+   },
+   "views": [
+    {
+     "src": "r48",
+     "org": "경남대 극동문제연구소 (임을출)",
+     "stance": "신중",
+     "text": "\"다극적 주권 기반 외교\"로의 전환 신호"
+    },
+    {
+     "src": "r14",
+     "org": "Stars and Stripes",
+     "stance": "경고",
+     "text": "무기 시험·사이버 범죄·대러 협력으로 대화 난항"
+    }
+   ],
+   "verdict": "북한은 미국보다 러시아·다극 외교를 우선하는 흐름. 대형 도발 신호는 없으나 대화 동력도 없음.",
+   "next": []
+  },
+  {
+   "id": "japan",
+   "rank": 7,
+   "title": "중·일 관계 동결",
+   "cat": "외교·안보",
+   "region": "ea",
+   "countries": [
+    "중국",
+    "일본"
+   ],
+   "trend": "flat",
+   "koreaImpact": "중간",
+   "summary": "APEC에서도 정상회담 불발, 1년째 냉각",
+   "outShort": "단기 해빙 신호 없음",
+   "now": "2025년 11월 다카이치 총리의 대만 유사시 자위대 발언 이후 관계 동결 1년. APEC 선전에서 시진핑과 악수만 했을 뿐 공식 회담 없음. 다카이치는 11/18 푸틴과 회담.",
+   "latest": [
+    {
+     "date": "2026-11-19",
+     "text": "APEC에서 시진핑-다카이치 짧은 악수, 회담 없음",
+     "src": [
+      "r47"
+     ]
+    },
+    {
+     "date": "2026-11-18",
+     "text": "다카이치-푸틴 회담",
+     "src": [
+      "r47"
+     ]
+    }
+   ],
+   "outlook": [
+    {
+     "text": "중국은 대만 발언 철회 없이는 관계 복원에 나서지 않을 전망",
+     "likelihood": "가능성 높음",
+     "src": [
+      "r47"
+     ]
+    }
+   ],
+   "scen": null,
+   "horizon": "연말까지",
+   "impact": {
+    "world": [
+     {
+      "text": "2025년 중·일 교역 약 3,040억 달러, 장기 냉각 시 동아시아 공급망 부담",
+      "src": [
+       "r47"
+      ]
+     }
+    ],
+    "korea": [
+     {
+      "text": "한·중·일 협력 틀 정체, 대만 문제에서 한국의 외교 부담 증가",
+      "src": [
+       "r47"
+      ]
+     }
+    ]
+   },
+   "views": [
+    {
+     "src": "r47",
+     "org": "템플대 (제프 킹스턴)",
+     "stance": "신중",
+     "text": "\"대만 발언이 중국을 자극했고 베이징은 물러서지 않는 중\""
+    }
+   ],
+   "verdict": "단일 언론 보도 기반으로 확신도 낮음. 기관 분석 보강 필요.",
+   "next": []
+  },
+  {
+   "id": "israel",
+   "rank": 8,
+   "title": "이스라엘 정부 구성",
+   "cat": "선거·정권",
+   "region": "me",
+   "countries": [
+    "이스라엘"
+   ],
+   "trend": "flat",
+   "koreaImpact": "낮음",
+   "summary": "아이젠코트 첫 연정 합의, 12/6 조각 시한",
+   "outShort": "과반 확보 불확실, 재선거·대연정 가능성",
+   "now": "10/27 총선에서 어느 블록도 과반(61석) 미달. 아이젠코트가 조각권을 받아 11/25 리베르만 정당과 첫 연정 합의(연합 48석). 네타냐후는 과도정부 총리로 대연정 협상 중.",
+   "latest": [
+    {
+     "date": "2026-11-25",
+     "text": "아이젠코트, 리베르만 이스라엘베이테이누(7석)와 첫 연정 합의",
+     "src": [
+      "r45"
+     ]
+    },
+    {
+     "date": "2026-11-07",
+     "text": "헤르초그 대통령, 네타냐후 대신 아이젠코트에 조각권",
+     "src": [
+      "r46"
+     ]
+    }
+   ],
+   "outlook": [
+    {
+     "text": "12/6 시한(14일 연장 가능) 내 61석 확보는 불확실, 실패 시 네타냐후에 기회 또는 90일 내 재선거",
+     "likelihood": "반반",
+     "src": [
+      "r45",
+      "r46"
+     ]
+    }
+   ],
+   "scen": null,
+   "horizon": "12월",
+   "impact": {
+    "world": [
+     {
+      "text": "차기 정부 성향이 가자·이란 정책 방향 좌우",
+      "src": [
+       "r46"
+      ]
+     }
+    ],
+    "korea": [
+     {
+      "text": "직접 영향 제한적, 중동 정세 변수",
+      "src": [
+       "r46"
+      ]
+     }
+    ]
+   },
+   "views": [
+    {
+     "src": "r45",
+     "org": "Al Jazeera·Reuters",
+     "stance": "신중",
+     "text": "민주당(8석) 협상 중단, 리쿠드와 대연정 논의 병행"
+    }
+   ],
+   "verdict": "언론 보도 기반. 정권 교체 여부가 중동 전쟁 대응에 영향을 줄 수 있는 변수.",
+   "next": [
+    {
+     "date": "2026-12-06",
+     "text": "조각 시한(14일 연장 가능)"
+    }
+   ]
+  }
+ ],
+ "countryView": [
+  {
+   "region": "ea",
+   "countries": [
+    {
+     "name": "중국",
+     "trend": "flat",
+     "line": "3자회담·관세휴전으로 미국과 관리 모드. 대만·일본에는 압박 유지.",
+     "src": [
+      "r8",
+      "r15"
+     ],
+     "issues": [
+      "bigthree",
+      "taiwan",
+      "japan",
+      "tariff"
+     ]
+    },
+    {
+     "name": "대만",
+     "trend": "flat",
+     "line": "국방 추경 통과, 11/28 지방선거. 해경 순찰 상시화에 대응.",
+     "src": [
+      "r40"
+     ],
+     "issues": [
+      "taiwan"
+     ]
+    },
+    {
+     "name": "북한",
+     "trend": "flat",
+     "line": "트럼프 회동 거부, 러시아 밀착. 대형 도발 신호는 없음.",
+     "src": [
+      "r48"
+     ],
+     "issues": [
+      "nk"
+     ]
+    },
+    {
+     "name": "일본",
+     "trend": "flat",
+     "line": "대중 관계 1년째 동결, 푸틴과 회담. 301조 관세는 15% 상한 적용 방침.",
+     "src": [
+      "r47",
+      "r34"
+     ],
+     "issues": [
+      "japan",
+      "tariff"
+     ]
+    }
+   ]
+  },
+  {
+   "region": "me",
+   "countries": [
+    {
+     "name": "이란",
+     "trend": "up",
+     "line": "미 봉쇄 속 걸프 기지·선박 공격, 기뢰 피격 주장. 사찰은 거부.",
+     "src": [
+      "r39",
+      "s41"
+     ],
+     "issues": [
+      "gulf"
+     ]
+    },
+    {
+     "name": "이스라엘",
+     "trend": "flat",
+     "line": "총선 후 정부 구성 협상 중, 12/6 조각 시한.",
+     "src": [
+      "r45"
+     ],
+     "issues": [
+      "israel"
+     ]
+    },
+    {
+     "name": "사우디·걸프",
+     "trend": "up",
+     "line": "바레인·쿠웨이트 피격, 사우디 연합군은 호데이다항 소개 명령.",
+     "src": [
+      "r38",
+      "s47"
+     ],
+     "issues": [
+      "gulf"
+     ]
+    }
+   ]
+  },
+  {
+   "region": "eu",
+   "countries": [
+    {
+     "name": "러시아",
+     "trend": "up",
+     "line": "크림대교 공격 뒤 협상 거부, 3자회담으로 강대국 위상 과시.",
+     "src": [
+      "s44",
+      "r8"
+     ],
+     "issues": [
+      "ukraine",
+      "bigthree"
+     ]
+    },
+    {
+     "name": "우크라이나",
+     "trend": "flat",
+     "line": "전선 정체, 포로교환 준비 완료. 미·유럽과 협상 지속.",
+     "src": [
+      "r43",
+      "r19"
+     ],
+     "issues": [
+      "ukraine"
+     ]
+    },
+    {
+     "name": "EU·독일",
+     "trend": "flat",
+     "line": "얄타식 3자 구도 경계, 301조 관세는 15% 상한 적용 방침.",
+     "src": [
+      "s42",
+      "r34"
+     ],
+     "issues": [
+      "ukraine",
+      "tariff"
+     ]
+    }
+   ]
+  },
+  {
+   "region": "am",
+   "countries": [
+    {
+     "name": "미국",
+     "trend": "up",
+     "line": "이란 봉쇄 유지, 301조 관세 공세 재개. 12/11 예산 시한 대치.",
+     "src": [
+      "r34",
+      "r21"
+     ],
+     "issues": [
+      "gulf",
+      "tariff",
+      "bigthree"
+     ]
+    }
+   ]
   }
  ]
 }
