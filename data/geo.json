@@ -1,7 +1,7 @@
 {
  "version": 2,
  "title": "글로벌 지정학 레이더",
- "generatedAt": "2026-11-25T14:00:00Z",
+ "generatedAt": "2026-11-25T14:30:00Z",
  "nextUpdate": "2026-11-29T21:47:00Z",
  "method": {
   "summary": "위험 지수(0–100)는 공개 자료 기반의 주간 편집 판단 점수(공식 통계 아님). 5개 구성요소의 가중합으로 산출하며 구성 내역 공개. 글로벌 지수는 한국 관점 핵심 4개 지역 점수의 가중 평균.",
@@ -1964,15 +1964,20 @@
   },
   {
    "id": "2026-11-23",
-   "asOf": "2026-11-23",
-   "period": "11/17–11/23",
+   "asOf": "2026-11-25",
+   "period": "11/17–11/25",
    "retro": false,
-   "oneLiner": "APEC 첫 미·중·러 3자회담은 '핵전쟁 불가' 수준 선언에 그침. 걸프는 미국의 게쉼섬 타격과 이란의 바레인·쿠웨이트 공격으로 재격화, 호르무즈 공격은 전쟁 이후 최고 수준. 유가는 공급 과잉으로 3주 연속 하락.",
+   "oneLiner": "미국, 11/25 301조 과잉생산 관세 14개국 제안(한국 포함, 세율 미공개). 걸프는 미국의 게쉼섬 타격과 이란의 바레인 기지 공격에 이어 11/23 호르무즈 기뢰 피격 주장까지 재격화. 그럼에도 유가는 공급 과잉으로 8월 말 이후 최저. APEC 미·중·러 3자회담은 상징적 선언에 그침.",
    "headlines": [
     {
-     "title": "미·중·러 첫 3자회담, 4개항 선언",
-     "region": "ea",
-     "sev": 1
+     "title": "미 301조 관세 14개국 제안, 한국 포함",
+     "region": "am",
+     "sev": 2
+    },
+    {
+     "title": "이란, 호르무즈 유조선 3척 기뢰 피격 주장",
+     "region": "me",
+     "sev": 3
     },
     {
      "title": "이란, 바레인 미군기지 4곳 2차례 공격",
@@ -1980,17 +1985,12 @@
      "sev": 3
     },
     {
-     "title": "미군, 이란 게쉼섬 미사일기지 타격",
-     "region": "me",
-     "sev": 3
+     "title": "미·중·러 첫 3자회담, 상징적 선언",
+     "region": "ea",
+     "sev": 1
     },
     {
-     "title": "푸틴 '크림대교 공격 뒤엔 협상 없다'",
-     "region": "eu",
-     "sev": 2
-    },
-    {
-     "title": "브렌트 $92.57, 3주 연속 하락",
+     "title": "브렌트 $89.37, 8월 말 이후 최저",
      "region": "me",
      "sev": 1
     }
@@ -1998,7 +1998,7 @@
    "regions": {
     "ea": {
      "score": 59,
-     "summary": "11/19 선전에서 트럼프·시진핑·푸틴 첫 3자회담, 에너지·국제사법·핵전쟁 방지·유엔 개혁 4개항 선언. 구체적 합의 없음. 미·중은 무역 위주 논의, 관세 휴전은 1/10까지. 대만 관련 성과 없음. 트럼프-김정은 회동 불발, 이재명 대통령은 푸틴과 첫 회동에서 한반도 긴장 고조 방지에 공감. 북한 발사 보고 없음.",
+     "summary": "11/19 선전에서 트럼프·시진핑·푸틴 첫 3자회담, 에너지·국제사법·핵전쟁 방지·유엔 개혁 4개항 선언. 구체적 합의 없음. 미·중은 무역 위주 논의, 관세 휴전은 1/10까지. 대만 관련 성과 없음. 트럼프-김정은 회동 불발, 이재명 대통령은 푸틴과 첫 회동에서 한반도 긴장 고조 방지에 공감. 북한 발사 보고 없음. 11/20 대만 국방 추경 NT$1,457억 통과.",
      "actors": [
       "중국",
       "미국",
@@ -2022,7 +2022,7 @@
     },
     "me": {
      "score": 92,
-     "summary": "미군, 11/17 이란 게쉼섬 미사일기지 타격. 이란은 11/18 바레인·쿠웨이트, 11/21 바레인 미군기지 4곳을 드론·탄도미사일로 공격(바레인 측 요격 발표). 호르무즈 공격은 10월 이후 전쟁 중 최고 수준, 이란은 유조선 14척 이상을 하르그섬에 집결시켜 봉쇄 돌파 예고. 카타르 대표단 테헤란 방문, 진전은 미공개.",
+     "summary": "미군, 11/17 이란 게쉼섬 미사일기지 타격. 이란은 11/18 바레인·쿠웨이트, 11/21 바레인 미군기지 4곳을 드론·탄도미사일로 공격(바레인 측 요격 발표). 호르무즈 공격은 10월 이후 전쟁 중 최고 수준, 이란은 유조선 14척 이상을 하르그섬에 집결시켜 봉쇄 돌파 예고. 카타르 대표단 테헤란 방문, 진전은 미공개. 11/23 IRGC, 호르무즈 유조선 3척 기뢰 피격 주장(독립 확인 없음). 11/24 사우디 연합군 예멘 호데이다항 소개 명령. 유가는 공급 증가로 8월 말 이후 최저.",
      "actors": [
       "미국",
       "이란 IRGC",
@@ -2047,7 +2047,7 @@
     },
     "eu": {
      "score": 65,
-     "summary": "우크라이나의 크림대교 타격 이후 푸틴 '공격 뒤엔 협상 없음' 입장. 다만 크렘린은 1,000명 이상 포로교환 준비가 최종 단계라고 발표. 메르츠 독일 총리는 미·중·러 3자 구도를 겨냥해 '얄타 방식으론 평화 불가' 발언.",
+     "summary": "우크라이나의 크림대교 타격 이후 푸틴 '공격 뒤엔 협상 없음' 입장. 다만 크렘린은 1,000명 이상 포로교환 준비가 최종 단계라고 발표. 메르츠 독일 총리는 미·중·러 3자 구도를 겨냥해 '얄타 방식으론 평화 불가' 발언. 11/25 우크라이나 포로교환 준비 완료 재확인, 일자 미정.",
      "actors": [
       "러시아",
       "우크라이나",
@@ -2069,7 +2069,7 @@
     },
     "am": {
      "score": 61,
-     "summary": "트럼프, APEC 3자회담을 '역사적'이라 자평. 민주당 상원의원 9명은 중·러 견제 촉구. 12/11 예산 시한을 앞두고 전쟁 예산 공방 지속.",
+     "summary": "트럼프, APEC 3자회담을 '역사적'이라 자평. 민주당 상원의원 9명은 중·러 견제 촉구. 12/11 예산 시한을 앞두고 전쟁 예산 공방 지속. 11/25 USTR 301조 과잉생산 관세 14개국 제안, 한국 세율 미공개.",
      "actors": [
       "미국 행정부",
       "민주당",
@@ -2273,7 +2273,7 @@
     {
      "region": "me",
      "dir": "up",
-     "text": "미 게쉼섬 타격, 이란의 바레인·쿠웨이트 공격, 호르무즈 공격 전쟁 이후 최고 수준"
+     "text": "미 게쉼섬 타격, 이란의 바레인·쿠웨이트 공격, 호르무즈 공격 전쟁 이후 최고 수준, 11/23 기뢰 피격 주장"
     },
     {
      "region": "ea",
@@ -2786,7 +2786,7 @@
      ]
     }
    ],
-   "title": "걸프 재격화로 중동 위험 92점까지 상승, 미·중·러 3자회담은 상징적 선언에 그침",
+   "title": "걸프 재격화·미 관세 압박 속 중동 위험 92점, 미·중·러 3자회담은 상징적 선언에 그침",
    "expertViews": [
     {
      "who": "Daniel Byman",
@@ -4251,6 +4251,64 @@
    ],
    "lat": 38.9,
    "lon": -77.04
+  },
+  {
+   "id": "e100",
+   "date": "2026-11-23",
+   "region": "me",
+   "type": "attack",
+   "sev": 3,
+   "title": "이란, 호르무즈 유조선 3척 기뢰 피격 주장",
+   "detail": "IRGC 해군 '통항 규정 위반 유조선 3척 화재' 발표(Press TV). 독립 확인 없음, 시장은 무시하고 유가 하락.",
+   "src": [
+    "r39",
+    "r38"
+   ],
+   "lat": 26.57,
+   "lon": 56.25
+  },
+  {
+   "id": "e101",
+   "date": "2026-11-24",
+   "region": "me",
+   "type": "attack",
+   "sev": 2,
+   "title": "사우디 연합군, 예멘 호데이다항 소개 명령",
+   "detail": "11/23 호데이다 공습 이후 조치. 후티 전선 확대 신호.",
+   "src": [
+    "r38"
+   ],
+   "lat": 14.8,
+   "lon": 42.95
+  },
+  {
+   "id": "e102",
+   "date": "2026-11-20",
+   "region": "ea",
+   "type": "politics",
+   "sev": 1,
+   "title": "대만, 국방 추경 NT$1,457억 통과",
+   "detail": "입법원 통과. 같은 날 중국 자금 수수 혐의로 지방선거 후보 기소.",
+   "src": [
+    "r40"
+   ],
+   "lat": 25.04,
+   "lon": 121.52
+  },
+  {
+   "id": "e103",
+   "date": "2026-11-23",
+   "region": "me",
+   "type": "economy",
+   "sev": 1,
+   "title": "브렌트 $89.37, 8월 말 이후 최저 종가",
+   "detail": "기뢰 피격 주장에도 공급 증가로 하락. 11/24 오전 $88.71.",
+   "src": [
+    "r39",
+    "r44"
+   ],
+   "lat": 26.2,
+   "lon": 50.6
   }
  ],
  "upcoming": [
@@ -4563,14 +4621,20 @@
      "v": 92.57,
      "src": "s50",
      "note": "3주 연속 하락"
+    },
+    {
+     "d": "2026-11-23",
+     "v": 89.37,
+     "src": "r44",
+     "note": "11/23(월) 종가, 8/31 이후 최저 (Reuters 확인)"
     }
    ],
    "kpis": [
     {
      "label": "브렌트",
-     "value": "$92.57",
-     "sub": "11/20 종가 · 3주 연속 하락",
-     "src": "s50",
+     "value": "$89.37",
+     "sub": "11/23 종가 · 8월 말 이후 최저 (11/20 $92.57)",
+     "src": "r39",
      "tone": "warn"
     },
     {
@@ -4912,7 +4976,7 @@
    },
    {
     "name": "브렌트 유가",
-    "now": "$92.57",
+    "now": "$89.37",
     "threshold": "$105 재돌파",
     "status": "개선"
    },
@@ -6138,6 +6202,127 @@
    "tier": "D",
    "checked": null,
    "note": "주간 업데이트 중 수집. 이번 재구축에서 원문 재열람 안 함"
+  },
+  {
+   "authors": null,
+   "figures": null,
+   "note": null,
+   "checked": "2026-11-25",
+   "id": "r38",
+   "publisher": "Al Jazeera",
+   "title": "Iran war updates: Saudi-led coalition orders evacuation of Hodeidah Port",
+   "url": "https://www.aljazeera.com/news/liveblog/2026/11/24/iran-war-live-iran-says-three-ships-catch-fire-after-hitting-hormuz-mines",
+   "date": "2026-11-24",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "이란, 호르무즈에서 유조선 3척 기뢰 피격 주장. 사우디 주도 연합군, 예멘 호데이다항 소개 명령(11/23 호데이다 공습)."
+  },
+  {
+   "authors": null,
+   "figures": "브렌트 $88.71 (11/24 06:10 사우디 시각)",
+   "note": null,
+   "checked": "2026-11-25",
+   "id": "r39",
+   "publisher": "Reuters (Arab News 게재)",
+   "title": "Oil prices near three-month lows as rising supply offsets Hormuz threat",
+   "url": "https://www.arabnews.com/energy/oil-prices-near-three-month-lows-as-rising-supply-offsets-hormuz-threat-3013802",
+   "date": "2026-11-24",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "IRGC 해군, 11/23 \"위반\" 유조선 3척 기뢰 피격·화재 발표(Press TV). 그럼에도 브렌트는 11/23 8/31 이후 최저 종가, 11/24 오전 $88.71. 공급 증가가 호르무즈 위협 상쇄."
+  },
+  {
+   "authors": null,
+   "figures": null,
+   "note": null,
+   "checked": "2026-11-25",
+   "id": "r40",
+   "publisher": "ISW · AEI Critical Threats",
+   "title": "China & Taiwan Update, November 24, 2026",
+   "url": "https://www.aei.org/commentary/china-taiwan-update-november-24-2026/",
+   "date": "2026-11-24",
+   "type": "thinktank",
+   "tier": "B",
+   "regions": [
+    "ea"
+   ],
+   "takeaway": "대만 입법원 11/20 추경 통과, 국방 NT$1,457억(약 46억 달러). 검찰은 11/20 중국 자금 수수 혐의로 민중당 지방선거 후보 기소. 3자 평화선언은 ICC에 주권 동의 존중 요구."
+  },
+  {
+   "authors": null,
+   "figures": null,
+   "note": null,
+   "checked": "2026-11-25",
+   "id": "r41",
+   "publisher": "Reuters (Korea Times 게재)",
+   "title": "US poised to unveil new tariffs targeting S. Korea, 15 other trading partners",
+   "url": "https://www.koreatimes.co.kr/world/20261125/us-poised-to-unveil-new-tariffs-targeting-s-korea-15-other-trading-partners",
+   "date": "2026-11-25",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "am",
+    "ea"
+   ],
+   "takeaway": "301조 과잉생산 조사 대상 16개국에 한국 포함. 세율·면제 미공개. 7월 강제노동 조사로 60개국에 10~12.5% 관세 부과 선례."
+  },
+  {
+   "authors": null,
+   "figures": null,
+   "note": "AI 번역 기사, 원문은 서울경제 국문판",
+   "checked": "2026-11-25",
+   "id": "r42",
+   "publisher": "서울경제 (영문판, AI 번역)",
+   "title": "U.S. Overcapacity Tariffs Near; Korea Seen Capped at 15%",
+   "url": "https://en.sedaily.com/society/2026/11/25/us-overcapacity-tariffs-near-korea-seen-capped-at-15-percent",
+   "date": "2026-11-25",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "ea",
+    "am"
+   ],
+   "takeaway": "한국은 강제노동 관세 12.5%와 합산해 15% 상한 도달 가능성 높음. 철강·알루미늄·자동차는 제외 전망. 골드만삭스 내년 말 원/달러 1,280원 전망."
+  },
+  {
+   "authors": null,
+   "figures": null,
+   "note": null,
+   "checked": "2026-11-25",
+   "id": "r43",
+   "publisher": "Ukrinform",
+   "title": "Ukraine ready for next POW exchange, Coordination Headquarters secretary says",
+   "url": "https://www.ukrinform.net/rubric-ato/4188502-ukraine-ready-for-next-pow-exchange-coordination-headquarters-secretary-says.html",
+   "date": "2026-11-25",
+   "type": "news",
+   "tier": "C",
+   "regions": [
+    "eu"
+   ],
+   "takeaway": "우크라이나 포로처우조정본부, 다음 포로교환 준비 완료 재확인. 실제 교환 일자·규모 미공개."
+  },
+  {
+   "authors": null,
+   "figures": null,
+   "note": null,
+   "checked": "2026-11-25",
+   "id": "r44",
+   "publisher": "FinanceFeeds",
+   "title": "Brent Crude Price $89.08: 24% Monthly Slide Before OPEC+",
+   "url": "https://financefeeds.com/brent-crude-oil-price-89-08-tuesday-24-percent-monthly-slide-opec-plus-29-november-bull-92-bear-86/",
+   "date": "2026-11-24",
+   "type": "blog",
+   "tier": "D",
+   "regions": [
+    "me"
+   ],
+   "takeaway": "브렌트 11/23 종가 $89.37(전일 대비 -3.46%), 8월 말 이후 첫 $89 하회. 11/20 종가 $92.57 재확인."
   }
  ],
  "excludedSources": [
@@ -6175,6 +6360,21 @@
    "url": "https://piqmarkets.com/story/us-proposes-excess-capacity-tariffs-on-14-trading-partners-china-highest",
    "publisher": "PiQMarkets",
    "reason": "AI 자동 요약 집계 사이트(사람 검수 없음)"
+  },
+  {
+   "url": "https://www.cnbc.com/2026/11/24/iran-trump-hormuz-crude-.html",
+   "publisher": "CNBC",
+   "reason": "원문 열람 실패"
+  },
+  {
+   "url": "https://www.riotimesonline.com/asia-intelligence-brief-tuesday-november-24-2026/",
+   "publisher": "The Rio Times",
+   "reason": "AI 자동 생성 기사, 수치 상충(KOSPI)"
+  },
+  {
+   "url": "https://political.org/2026/11/25/iran-says-two-more-tankers-hit-mines-in-strait-of-hormuz-warns-ships-to-coordinate-passage/",
+   "publisher": "Political.org",
+   "reason": "원출처 미표기(이란 국영매체 재인용), 단독 수치"
   }
  ],
  "forecasts": {
@@ -6219,16 +6419,18 @@
    "title": "미국, 301조 과잉생산 관세 14개국 제안 · 한국 포함",
    "points": [
     "중국 추가 20%(일부 품목 합계 45%), 베트남 20%",
-    "한국·일본·EU·대만은 기존 15% 상한과 일관되게 책정 방침, 세율 미공개",
+    "한국·일본·EU·대만은 기존 15% 상한과 일관되게 책정 방침, 세율 미공개 · 철강·알루미늄·자동차 제외 전망(서울경제)",
     "의견수렴·청문회 후 발효, 1월 연기 가능",
     "미·중 관세휴전(1/10 만료) 시험대"
    ],
    "src": [
     "r34",
     "r35",
-    "r36"
+    "r36",
+    "r41",
+    "r42"
    ],
-   "note": "기준일(11/23) 이후 사안으로 위험 점수에는 11/30 정기 업데이트 때 반영 예정"
+   "note": "점수에는 11/30 정기 업데이트 때 세율 공개 여부와 함께 반영 예정"
   }
  ]
 }
