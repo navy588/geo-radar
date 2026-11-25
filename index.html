@@ -251,6 +251,28 @@ svg .lbl{fill:var(--ink);font-weight:650}
 .lkscale{display:flex;gap:2px}.lkscale div{flex:1;border-radius:5px;padding:5px 3px;text-align:center;font-size:10.5px;line-height:1.3}.lkscale span{display:block;font-size:9.5px;opacity:.85}
 .pil ul{font-size:13px}
 
+.flash{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--crit);border-radius:12px;padding:12px 16px;margin:0 0 14px;box-shadow:var(--shadow)}
+.fh{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;font-size:15px}.fb{background:var(--crit);color:#fff;font-size:11.5px;font-weight:800;padding:2px 8px;border-radius:6px}
+.flash ul{margin:8px 0 6px;padding-left:18px;font-size:13.5px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 24px}@media (max-width:760px){.flash ul{grid-template-columns:1fr}}
+.ff{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.lede{font-size:16.5px;line-height:1.7;color:var(--ink-2);max-width:900px;margin:4px 0 14px}
+.lede b{color:var(--ink)}
+.rbr{display:flex;flex-direction:column;gap:8px}
+.rbr .rh{display:flex;align-items:center;gap:10px}
+.rbr .rh h3{margin:0;font-size:16px}
+.rbr .sc{margin-left:auto;font-size:22px;font-weight:800;letter-spacing:-.02em}
+.rbr p{margin:0;font-size:14px;line-height:1.65}
+.rbr .wl{font-size:12.5px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center}
+.rbr .more{align-self:flex-start;background:none;border:0;padding:0;color:var(--link,var(--s1));font:inherit;font-size:12.5px;font-weight:650;cursor:pointer}
+.qc{display:flex;flex-direction:column;gap:8px}
+.qc blockquote{margin:0;font-size:15px;line-height:1.6;font-weight:600;letter-spacing:-.01em}
+.qc blockquote::before{content:'“';font-size:30px;line-height:0;vertical-align:-10px;margin-right:2px;color:var(--ink-3)}
+.qc .who{font-size:12.5px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.qc .who b{color:var(--ink)}
+.qg{grid-column:1/-1;margin:6px 0 0;font-size:15px}
+.rbr .more{margin-top:auto}
+.st{font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2)}
+.kt .ks{display:block;font-size:13px;color:var(--ink-2);font-weight:400;margin-top:3px;line-height:1.5}
 @media print{.top,.filters,.iconbtn,.drawer,.scrim{display:none!important}body{background:#fff}.card{box-shadow:none;break-inside:avoid}}
 @media (forced-colors:active){.tier,.status i{border:1px solid CanvasText}}
 </style>
@@ -259,7 +281,7 @@ svg .lbl{fill:var(--ink);font-weight:650}
 
 <header class="top"><div class="wrap">
   <div class="logo"><i>GR</i>글로벌 지정학 레이더</div>
-  <nav class="nav" id="nav"><a href="#overview">개요</a><a href="#bluf">핵심 판단</a><a href="#index">히트맵</a><a href="#scen">시나리오</a><a href="#timeline">타임라인</a><a href="#energy">에너지</a><a href="#reports">기관 시각</a><a href="#korea">한국 영향</a><a href="#audit">출처·방법론</a></nav>
+  <nav class="nav" id="nav"><a href="#overview">개요</a><a href="#brief">지역 브리핑</a><a href="#bluf">핵심 판단</a><a href="#voices">전문가 시각</a><a href="#index">히트맵</a><a href="#scen">시나리오</a><a href="#timeline">타임라인</a><a href="#energy">에너지</a><a href="#reports">기관 시각</a><a href="#korea">한국 영향</a><a href="#audit">출처·방법론</a></nav>
   <button class="iconbtn" id="theme" aria-label="화면 테마 전환">다크 모드</button>
 </div></header>
 
@@ -267,8 +289,10 @@ svg .lbl{fill:var(--ink);font-weight:650}
   <div class="mast">
     <div class="eyebrow">주간 지정학 리스크 · 한국 관점</div>
     <h1 id="headline"></h1>
+    <p class="lede" id="lede"></p>
     <div class="meta" id="meta"></div>
   </div>
+  <div id="flash"></div>
 
   <section id="overview" style="padding-top:6px">
     <div class="grid g-map">
@@ -280,13 +304,23 @@ svg .lbl{fill:var(--ink);font-weight:650}
     </div>
   </section>
 
+  <section id="brief">
+    <div class="sh"><div><h2>지역 브리핑</h2><p>이번 주 무슨 일이 있었고 왜 중요한지 · 위험 가중치 순</p></div></div>
+    <div class="grid g-2" id="rbrief"></div>
+  </section>
+
   <section id="bluf">
-    <div class="sh"><div><h2>핵심 판단</h2><p>행을 누르면 근거 전문과 반대 근거가 펼쳐집니다.</p></div></div>
+    <div class="sh"><div><h2>핵심 판단</h2><p>행 클릭 시 근거 전문·반대 근거 표시</p></div></div>
     <div class="card" style="padding:8px 16px"><div id="board"></div></div>
   </section>
 
+  <section id="voices">
+    <div class="sh"><div><h2>전문가 시각·주요 발언</h2><p>싱크탱크 전문가 원문 인용과 당사자 발언 · 등급 배지 누르면 출처</p></div></div>
+    <div class="grid g-3" id="quotes"></div>
+  </section>
+
   <section id="index">
-    <div class="sh"><div><h2>위험 히트맵</h2><p>색이 진할수록 위험이 큽니다.</p></div></div>
+    <div class="sh"><div><h2>위험 히트맵</h2><p>색이 진할수록 고위험</p></div></div>
     <div class="grid g-2">
       <div class="card"><h3>8주 추이</h3><p class="sub">지역 × 주간 점수</p><div id="hmTrend"></div></div>
       <div class="card"><h3>이번 주 점수 구성</h3><p class="sub">지역 × 구성요소 원점수 (괄호는 가중치)</p><div id="hmComp"></div></div>
@@ -314,7 +348,7 @@ svg .lbl{fill:var(--ink);font-weight:650}
   </section>
 
   <section id="reports">
-    <div class="sh"><div><h2>기관 시각·리포트</h2><p>점이나 타일을 누르면 원문 요지와 링크가 열립니다.</p></div></div>
+    <div class="sh"><div><h2>기관 시각·리포트</h2><p>점·타일 클릭 시 원문 요지와 링크 표시</p></div></div>
     <div class="card" style="margin-bottom:16px"><h3>쟁점별 기관 시각 분포</h3><div id="views"></div></div>
     <div class="filters" id="repf"></div>
     <div class="tiles" id="rep"></div>
@@ -328,7 +362,7 @@ svg .lbl{fill:var(--ink);font-weight:650}
   </section>
 
   <section id="rel">
-    <div class="sh"><div><h2>주요국 관계 지형</h2><p>칸에 마우스를 올리면 근거가 보입니다.</p></div></div>
+    <div class="sh"><div><h2>주요국 관계 지형</h2><p>칸에 마우스를 올리면 근거 표시</p></div></div>
     <div class="card"><div class="legend" id="relLeg"></div><div id="relm" style="overflow-x:auto"></div></div>
   </section>
 
@@ -427,6 +461,7 @@ const boot=([d,w])=>{D=d;W=w;S=d.snapshots;L=S[S.length-1];P=S[S.length-2];
   (L.judgments||[]).forEach(j=>{use(j.basis,'핵심 판단: '+j.text);use(j.dissentSrc,'반대 근거: '+j.text)});
   d.events.forEach(e=>use(e.src,`사건 ${md(e.date)}: ${e.title}`));
   (L.experts||[]).forEach(x=>use([x.src],`발언: ${x.who}`));
+  (L.expertViews||[]).forEach(x=>use([x.src],`전문가 시각: ${x.who}`));
   d.korea.pillars.forEach(p=>use(p.src,'한국 영향: '+p.title));
   Object.values(L.scenarios||{}).flat().forEach(sc=>sc.signposts.forEach(sp=>use(sp.src,'선행 지표: '+sp.text)));
   (L.views||[]).forEach(v=>v.views.forEach(x=>use([x.src],'시각 비교: '+v.q)));
@@ -445,9 +480,10 @@ function renderAll(){
   const nSrc=D.sources.length, nChecked=D.sources.filter(s=>s.checked).length;
   $('#headline').textContent=L.title||L.oneLiner.split('.')[0]+'.';
   $('#meta').innerHTML=`<span>기준일 <b>${fmtD(L.asOf)}</b> (${esc(L.period)})</span><span class="dot-sep">발행 ${fmtD(D.generatedAt.slice(0,10))}</span><span class="dot-sep">다음 갱신 ${fmtD(new Date(new Date(D.nextUpdate).getTime()+9*3600e3).toISOString().slice(0,10))} 06:47 KST</span><span class="dot-sep">출처 <b>${nSrc}</b>건 · 원문 재확인 <b>${nChecked}</b>건</span><span class="dot-sep"><a href="#audit">방법론</a></span>`;
-  renderReports();renderKorea();renderAudit();renderMapFilters();renderHL();renderBoard();renderRBars();renderScen();
+  renderReports();renderKorea();renderAudit();renderMapFilters();renderHL();renderFlash();renderBoard();renderRBars();renderScen();renderBrief();renderQuotes();
+  $('#lede').textContent=L.oneLiner;
   renderCharts();
-  $('#foot').innerHTML=`${esc(D.method.summary)}<br>점수와 확률은 편집 판단이며 투자·정책 결정의 단독 근거로 쓰지 마십시오. 출처 저작권은 각 발행처에 있습니다. 데이터: <a href="data/geo.json">geo.json</a>`;
+  $('#foot').innerHTML=`${esc(D.method.summary)}<br>점수와 확률은 편집 판단으로, 투자·정책 결정의 단독 근거로 사용 금지. 출처 저작권은 각 발행처 소유. 데이터: <a href="data/geo.json">geo.json</a>`;
   const ths=$('#theme');ths.textContent=document.documentElement.dataset.theme==='dark'?'라이트 모드':'다크 모드';
   ths.onclick=()=>{const t=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=t;localStorage.setItem('gr-theme',t);ths.textContent=t==='dark'?'라이트 모드':'다크 모드';renderCharts()};
   // nav highlight
@@ -473,7 +509,7 @@ function renderMapFilters(){
   el.querySelectorAll('#fsev button').forEach(b=>b.onclick=()=>{mapF.sev=+b.dataset.v;renderMapFilters();renderMap()});
 }
 const sevC=s=>css('--sev'+s);
-function filteredEvents(){const end=new Date(L.asOf+'T23:59:59Z');const start=new Date(end-mapF.days*864e5);return D.events.filter(e=>new Date(e.date)>=start&&new Date(e.date)<=end&&e.sev>=mapF.sev&&!(mapF.hideD&&dOnly(e))).sort((a,b)=>b.date.localeCompare(a.date)||b.sev-a.sev)}
+function filteredEvents(){const end=new Date(D.generatedAt.slice(0,10)+'T23:59:59Z');const start=new Date(end-mapF.days*864e5);return D.events.filter(e=>new Date(e.date)>=start&&new Date(e.date)<=end&&e.sev>=mapF.sev&&!(mapF.hideD&&dOnly(e))).sort((a,b)=>b.date.localeCompare(a.date)||b.sev-a.sev)}
 function renderMap(){
   const el=$('#map');el.innerHTML='';const w=el.clientWidth||800,h=Math.round(w*0.52);
   const feats=topojson.feature(W,W.objects.countries).features.filter(f=>f.id!=='010');
@@ -484,7 +520,7 @@ function renderMap(){
     .on('mousemove',(ev,f)=>{const k=String(f.id).padStart(3,'0');if(sc[k]==null)return hideTip();showTip(ev,`<b>${esc(names[k]||k)}</b><br>위험 점수 ${sc[k]} · ${bandOf(sc[k]).label}`)}).on('mouseleave',hideTip);
   const ev=filteredEvents();const r=d3.scaleOrdinal([1,2,3],[4,6,8.5]);
   svg.append('g').selectAll('circle').data([...ev].sort((a,b)=>a.sev-b.sev)).join('circle').attr('cx',d=>proj([d.lon,d.lat])[0]).attr('cy',d=>proj([d.lon,d.lat])[1]).attr('r',d=>r(d.sev)).attr('fill',d=>dOnly(d)?css('--surface'):sevC(d.sev)).attr('stroke',d=>dOnly(d)?sevC(d.sev):css('--surface')).attr('stroke-width',2).style('cursor','pointer')
-    .on('mousemove',(e,d)=>showTip(e,`<b>${esc(d.title)}</b><br>${fmtD(d.date)} · 심각도 ${d.sev}${dOnly(d)?'<br><span class="k">⚠ D등급 출처만 있음</span>':''}<br><span class="k">눌러서 출처 보기</span>`)).on('mouseleave',hideTip).on('click',(e,d)=>{hideTip();openEvent(d)});
+    .on('mousemove',(e,d)=>showTip(e,`<b>${esc(d.title)}</b><br>${fmtD(d.date)} · 심각도 ${d.sev}${dOnly(d)?'<br><span class="k">⚠ D등급 출처만 있음</span>':''}<br><span class="k">클릭 시 출처 표시</span>`)).on('mouseleave',hideTip).on('click',(e,d)=>{hideTip();openEvent(d)});
   // legend
   const stops=[30,40,50,60,70,80,90,100];
   $('#mapLeg').innerHTML=`<span>국가 위험 점수</span>${stops.map(s=>`<span><i style="background:${riskColor(s)}"></i>${s}</span>`).join('')}<span style="margin-left:10px">사건 심각도</span>${[1,2,3].map(s=>`<span><i style="background:${sevC(s)};border-radius:50%;width:${[0,8,11,15][s]}px;height:${[0,8,11,15][s]}px"></i>${s}</span>`).join('')}<span><i style="background:transparent;border:2px solid var(--sev2);border-radius:50%;width:11px;height:11px"></i>속 빈 점 = D등급 출처만</span>`;
@@ -494,7 +530,7 @@ function renderMap(){
 // ---------- timeline
 function renderTimeline(){
   const el=$('#tl');el.innerHTML='';const w=el.clientWidth,lw=96,rh=42;const regs=D.regions;const h=regs.length*rh+28;
-  const end=new Date(L.asOf+'T00:00:00Z'),start=new Date(end-60*864e5);
+  const end=new Date(D.generatedAt.slice(0,10)+'T00:00:00Z'),start=new Date(end-60*864e5);
   const ev=D.events.filter(e=>new Date(e.date)>=start&&!(mapF.hideD&&dOnly(e)));
   const x=d3.scaleTime([start,new Date(+end+864e5)],[lw,w-10]);
   const svg=d3.select(el).append('svg').attr('width',w).attr('height',h);
@@ -614,6 +650,22 @@ function openRegion(id){
 // grade dots: compact clickable source markers
 function gdots(ids){return (ids||[]).filter(i=>SRC[i]).map(i=>{const s=SRC[i];return `<button class="gd tier ${s.tier} cite" data-s="${i}" title="${esc(s.publisher)} · ${esc(s.title)} (${fmtD(s.date)})" aria-label="${esc(s.publisher)} ${s.tier}등급">${s.tier}</button>`}).join('')}
 
+// ---------- region brief (text) & quotes
+function renderBrief(){
+  const rs=D.regions.filter(r=>r.weight||L.regions[r.id].score>=70).sort((a,b)=>(b.weight||0)-(a.weight||0));
+  $('#rbrief').innerHTML=rs.map(r=>{const R=L.regions[r.id],pr=P.regions[r.id];const dv=pr?R.score-pr.score:0;const c=(L.changes||[]).find(x=>x.region===r.id);
+    return `<div class="card rbr"><div class="rh"><h3>${esc(r.name)}</h3><span class="band" style="background:${riskColor(R.score)}">${bandOf(R.score).label}</span><span class="delta ${dv>0?'up':dv<0?'down':'flat'}">${dv>0?'▲':dv<0?'▼':'■'}${Math.abs(dv)||''}</span><span class="sc">${R.score}</span></div>
+     <p>${esc(R.summary)}</p>${c?`<p class="mini"><b>점수 변화</b> ${esc(c.text)}</p>`:''}
+     ${R.watch?`<div class="wl"><b>주시</b>${R.watch.slice(0,3).map(w=>`<span class="tag">${esc(w)}</span>`).join('')}</div>`:''}
+     <button class="more" data-r="${r.id}">구성요소·사건·발언 보기 ›</button></div>`}).join('');
+  $('#rbrief').querySelectorAll('.more').forEach(b=>b.onclick=()=>openRegion(b.dataset.r));
+}
+function renderQuotes(){
+  const ord={me:0,ea:1,eu:2,am:3,sa:4,af:5};const byR=(a,b)=>(ord[a.region]??9)-(ord[b.region]??9);const ex=(L.experts||[]).slice().sort(byR);const ev=(L.expertViews||[]).slice().sort(byR);
+  const evH=ev.map(x=>`<div class="card qc"><blockquote>${esc(x.ko)}</blockquote><div class="mini" lang="en" style="font-style:italic">“${esc(x.quote)}”</div><div class="who"><b>${esc(x.who)}</b><span>${esc(x.org)}</span></div><div class="who"><span class="ri ri-${x.region}">${esc(SN(x.region))}</span><span class="st">${esc(x.stance)}</span><span>${fmtD(SRC[x.src]?.date)}</span>${gdots([x.src])}</div></div>`).join('');
+  $('#quotes').innerHTML=(ev.length?`<h3 class="qg">전문가·싱크탱크 시각 <span class="mini">원문 + 번역</span></h3>${evH}<h3 class="qg">당사자 발언</h3>`:'')+ex.map(x=>`<div class="card qc"><blockquote>${esc(x.quote)}</blockquote><div class="who"><b>${esc(x.who)}</b><span>${esc(x.org)}</span></div><div class="who"><span class="ri ri-${x.region}">${esc(SN(x.region))}</span><span class="st">${esc(x.stance)}</span><span>${md(x.date)}</span>${x.paraphrase?'<span class="mini">요약 인용</span>':''}${gdots([x.src])}</div></div>`).join('');
+}
+
 // ---------- judgment board
 let openKJ=null;
 function renderBoard(){
@@ -622,11 +674,11 @@ function renderBoard(){
     const strong=j.basis.filter(s=>['A','B'].includes(SRC[s]?.tier)).length;
     return `<div class="kb" data-i="${i}" tabindex="0" role="button" aria-expanded="${openKJ===i}">
      <span class="ri ri-${j.region}">${esc(SN(j.region))}</span>
-     <span class="kt"><b>${esc(j.h||j.text)}</b><span class="hz">~${esc(j.horizon)}</span>${j.basis.length<2||!strong?'<span class="warnflag">⚠</span>':''}</span>
+     <span class="kt"><b>${esc(j.h||j.text)}</b><span class="hz">~${esc(j.horizon)}</span>${j.basis.length<2||!strong?'<span class="warnflag">⚠</span>':''}${j.h&&j.h!==j.text?`<span class="ks">${esc(j.text)}</span>`:''}</span>
      <span class="lm" title="${esc(j.likelihood)} ${LK[li]?.range}">${LK.map((_,k)=>`<i class="${k<=li?'on':''}" style="${k<=li?`background:${d3.interpolateRgb(css('--lk-0'),css('--lk-1'))(k/6)}`:''}"></i>`).join('')}<em>${LK[li]?.range}</em></span>
      <span class="cf" title="확신도 ${esc(j.confidence)}">${[0,1,2].map(k=>`<i class="${k<=ci?'on':''}"></i>`).join('')}<em>${esc(j.confidence)}</em></span>
      <span class="gds">${gdots(j.basis)}</span>
-     ${openKJ===i?`<div class="kx"><p>${esc(j.text)} <span class="mini">(${esc(j.likelihood)})</span></p>${j.dissent?`<p class="d"><b>반대 근거</b> ${esc(j.dissent)} ${cite(j.dissentSrc)}</p>`:''}<div>${cite(j.basis)}</div></div>`:''}</div>`}).join('');
+     ${openKJ===i?`<div class="kx"><p class="mini">가능성 판단: ${esc(j.likelihood)} · 확신도 ${esc(j.confidence)}</p>${j.dissent?`<p class="d"><b>반대 근거</b> ${esc(j.dissent)} ${cite(j.dissentSrc)}</p>`:''}<div>${cite(j.basis)}</div></div>`:''}</div>`}).join('');
   $('#board').querySelectorAll('.kb[data-i]').forEach(n=>{const go=e=>{if(e.target.closest('.cite'))return;const i=+n.dataset.i;openKJ=openKJ===i?null:i;renderBoard()};n.onclick=go;n.onkeydown=e=>{if(e.key==='Enter')go(e)}});
 }
 
@@ -689,6 +741,9 @@ function renderMethodViz(){
    <div class="mini" style="margin:10px 0 4px"><b>가능성 척도</b></div><div class="lkscale">${D.method.likelihood.map((l,k)=>`<div style="background:${d3.interpolateRgb(css('--lk-0'),css('--lk-1'))(k/6)};color:${k>3?'#fff':'#0b0b0b'}"><b>${esc(l.term.replace('가능성 ',''))}</b><span>${l.range}</span></div>`).join('')}</div>
    <div class="mini" style="margin:10px 0 4px"><b>신뢰 등급</b></div><div class="legend">${D.method.tiers.map(t=>`<span><span class="tier ${t.tier}">${t.tier}</span>${esc(t.name)}</span>`).join('')}</div>`;
 }
+function renderFlash(){
+  const F=D.flash||[];$('#flash').innerHTML=F.map(f=>`<div class="flash"><div class="fh"><span class="fb">속보 ${md(f.date)}</span><b>${esc(f.title)}</b>${regTag(f.region)}</div><ul>${f.points.map(p=>`<li>${esc(p)}</li>`).join('')}</ul><div class="ff">${cite(f.src)}<span class="mini">${esc(f.note||'')}</span></div></div>`).join('');
+}
 function renderHL(){
   $('#hl').innerHTML=(L.headlines||[]).map(h=>`<span class="hlc"><i style="background:${sevC(h.sev)}"></i>${esc(h.title)}</span>`).join('');
 }
@@ -714,8 +769,8 @@ function renderAudit(){
   const dated=S2.filter(s=>s.date).map(s=>(new Date(L.asOf)-new Date(s.date))/864e5).sort((a,b)=>a-b);const med=dated[Math.floor(dated.length/2)];
   $('#auditTiles').innerHTML=[
     ['전체 출처',n+'건',`공식·전문 분석(A·B) ${strong}건 · ${Math.round(strong/n*100)}%`],
-    ['원문 재확인',chk+'건',`이번 재구축에서 원문을 열어 발행일·요지 확인`],
-    ['D등급만 근거인 사건',dOnly+'건',`전체 사건 ${D.events.length}건 중. 판단의 단독 근거로 쓰지 않음 · 출처 중앙 연령 ${Math.round(med)}일`]
+    ['원문 재확인',chk+'건',`원문 열람으로 발행일·요지 확인`],
+    ['D등급만 근거인 사건',dOnly+'건',`전체 사건 ${D.events.length}건 중. 판단의 단독 근거로 미사용 · 출처 중앙 연령 ${Math.round(med)}일`]
   ].map(([a,b,c])=>`<div class="card"><div class="mini">${a}</div><div style="font-size:30px;font-weight:780;letter-spacing:-.03em">${b}</div><div class="mini">${c}</div></div>`).join('');
   const M=D.method;
   $('#method').innerHTML=`<p class="mini" style="margin-top:0">${esc(M.summary)}</p>
