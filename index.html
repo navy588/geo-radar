@@ -270,6 +270,8 @@ svg .lbl{fill:var(--ink);font-weight:650}
 .qc .who{font-size:12.5px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
 .qc .who b{color:var(--ink)}
 .rr{padding:12px 0;border-top:1px solid var(--line)}.rr:first-child{border-top:0}.rm{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.rtk{font-size:14px;line-height:1.6;margin:4px 0}.rl{background:none;border:0;padding:0;font:inherit;font-size:12px;color:var(--ink-3);cursor:pointer;text-align:left}
+.dchip{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:750;padding:2px 9px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}.dchip.up{color:var(--crit-ink)}.dchip.down{color:var(--good-ink)}.dchip.flat{color:var(--ink-2)}
+.dr{display:grid;grid-template-columns:86px 64px minmax(0,1fr);gap:10px;align-items:start;width:100%;border:0;border-top:1px solid var(--line);background:none;padding:11px 2px;cursor:pointer;text-align:left;font:inherit;color:inherit}.dr:first-child{border-top:0}.dr .rn{padding-top:2px}.dr .tx{font-size:13.5px;line-height:1.55}.dr .ko{display:block;font-size:12px;color:var(--ink-3);margin-top:3px}
 .qg{grid-column:1/-1;margin:6px 0 0;font-size:15px}
 .rbr .more{margin-top:auto}
 .st{font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2)}
@@ -299,13 +301,13 @@ svg .lbl{fill:var(--ink);font-weight:650}
     <div class="grid g-map">
       <div class="card" style="padding:14px 14px 10px"><div class="filters" id="mapf" style="margin:0 0 8px"></div><div id="map"></div><div class="legend" id="mapLeg" style="margin:6px 4px 0"></div><div class="hl" id="hl"></div></div>
       <div class="grid" style="align-content:start">
-                <div class="card"><h3>지역 위험 점수</h3><p class="sub">막대 = 이번 주 점수 · 누르면 상세</p><div id="rbars"></div></div>
+                <div class="card"><h3>이번 주 지역별 흐름</h3><p class="sub">전주 대비 · 누르면 상세</p><div id="rbars"></div></div>
       </div>
     </div>
   </section>
 
   <section id="brief">
-    <div class="sh"><div><h2>지역 브리핑</h2><p>이번 주 무슨 일이 있었고 왜 중요한지 · 위험 가중치 순</p></div></div>
+    <div class="sh"><div><h2>지역 브리핑</h2><p>이번 주 무슨 일이 있었고 한국에 왜 중요한지</p></div></div>
     <div class="grid g-2" id="rbrief"></div>
   </section>
 
@@ -349,7 +351,7 @@ svg .lbl{fill:var(--ink);font-weight:650}
   <section id="audit">
     <div class="sh"><div><h2>출처 감사·방법론</h2></div></div>
     <div class="grid g-3" id="auditTiles"></div>
-    <details class="card" style="margin-top:16px"><summary style="cursor:pointer;font-weight:700">점수 산출 방식</summary><div id="method" style="margin-top:10px"></div></details>
+    <details class="card" style="margin-top:16px"><summary style="cursor:pointer;font-weight:700">판단 기준</summary><div id="method" style="margin-top:10px"></div></details>
     <details class="card" style="margin-top:16px"><summary style="cursor:pointer;font-weight:700">전체 출처 목록과 검증 제외 자료</summary>
       <div style="display:flex;justify-content:flex-end;margin-top:10px"><input class="search" id="q" placeholder="발행처·제목 검색"></div>
       <div class="filters" id="srcf" style="margin-top:10px"></div>
@@ -384,6 +386,9 @@ const TYPEC={official:'--s1',thinktank:'--s2',ib:'--s3',data:'--s4',news:'--s5',
 const COMPC=['--s1','--s2','--s3','--s4','--s5'];
 const fmtD=s=>{if(!s)return '날짜 미표시';const [y,m,d]=s.split('-');return `${y}.${m}.${d}`};
 const md=s=>{const [y,m,d]=s.split('-');return `${+m}/${+d}`};
+const DIR={up:['악화','▲','up'],down:['완화','▼','down'],flat:['유지','■','flat']};
+const dirOf=id=>{const c=(L.changes||[]).find(x=>x.region===id);return {c,d:DIR[c?.dir||'flat']}};
+const dirChip=id=>{const {d}=dirOf(id);return `<span class="dchip ${d[2]}">${d[1]} ${d[0]}</span>`};
 const bandOf=v=>D.method.bands.find(b=>v>=b.min&&v<=b.max)||D.method.bands[0];
 
 function cite(ids){
@@ -434,6 +439,9 @@ document.addEventListener('click',e=>{const b=e.target.closest('.cite');if(b){e.
 // ---------- load
 const boot=([d,w])=>{D=d;W=w;S=d.snapshots;L=S[S.length-1];P=S[S.length-2];
   d.sources.forEach(s=>SRC[s.id]=s);d.regions.forEach(r=>RG[r.id]=r);
+  const CORE=new Set(d.regions.filter(r=>r.tier===1).map(r=>r.id));const inC=x=>CORE.has(x.region);
+  d.regions=d.regions.filter(r=>CORE.has(r.id));d.events=d.events.filter(inC);d.upcoming=(d.upcoming||[]).filter(inC);
+  ['experts','expertViews','headlines','judgments','changes'].forEach(k=>{if(L[k])L[k]=L[k].filter(inC)});
   const use=(ids,label)=>(ids||[]).forEach(i=>(USED[i]=USED[i]||[]).push(label));
   (L.judgments||[]).forEach(j=>{use(j.basis,'핵심 판단: '+j.text);use(j.dissentSrc,'반대 근거: '+j.text)});
   d.events.forEach(e=>use(e.src,`사건 ${md(e.date)}: ${e.title}`));
@@ -460,7 +468,7 @@ function renderAll(){
   renderReports();renderKorea();renderAudit();renderMapFilters();renderHL();renderFlash();renderBoard();renderRBars();renderScen();renderBrief();renderQuotes();
   $('#lede').textContent=L.oneLiner;
   renderCharts();
-  $('#foot').innerHTML=`${esc(D.method.summary)}<br>점수와 확률은 편집 판단으로, 투자·정책 결정의 단독 근거로 사용 금지. 출처 저작권은 각 발행처 소유. 데이터: <a href="data/geo.json">geo.json</a>`;
+  $('#foot').innerHTML=`지역 흐름·가능성·확률은 편집 판단으로, 투자·정책 결정의 단독 근거로 사용 금지. 출처 저작권은 각 발행처 소유. 데이터: <a href="data/geo.json">geo.json</a>`;
   const ths=$('#theme');ths.textContent=document.documentElement.dataset.theme==='dark'?'라이트 모드':'다크 모드';
   ths.onclick=()=>{const t=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=t;localStorage.setItem('gr-theme',t);ths.textContent=t==='dark'?'라이트 모드':'다크 모드';renderCharts()};
   // nav highlight
@@ -491,16 +499,16 @@ function renderMap(){
   const el=$('#map');el.innerHTML='';const w=el.clientWidth||800,h=Math.round(w*0.52);
   const feats=topojson.feature(W,W.objects.countries).features.filter(f=>f.id!=='010');
   const proj=d3.geoNaturalEarth1().fitExtent([[4,4],[w-4,h-4]],{type:'FeatureCollection',features:feats});const path=d3.geoPath(proj);
-  const svg=d3.select(el).append('svg').attr('viewBox',`0 0 ${w} ${h}`).attr('role','img').attr('aria-label','국가별 위험 점수와 사건 위치 지도');
+  const svg=d3.select(el).append('svg').attr('viewBox',`0 0 ${w} ${h}`).attr('role','img').attr('aria-label','주요 사건 위치 지도');
   const sc=L.countries,names=D.countryNames;
-  svg.append('g').selectAll('path').data(feats).join('path').attr('d',path).attr('fill',f=>{const k=String(f.id).padStart(3,'0');return sc[k]!=null?riskColor(sc[k]):css('--nodata')}).attr('stroke',css('--land-stroke')).attr('stroke-width',.6)
-    .on('mousemove',(ev,f)=>{const k=String(f.id).padStart(3,'0');if(sc[k]==null)return hideTip();showTip(ev,`<b>${esc(names[k]||k)}</b><br>위험 점수 ${sc[k]} · ${bandOf(sc[k]).label}`)}).on('mouseleave',hideTip);
+  svg.append('g').selectAll('path').data(feats).join('path').attr('d',path).attr('fill',css('--nodata')).attr('stroke',css('--land-stroke')).attr('stroke-width',.6)
+    .on('mousemove',(ev,f)=>{const k=String(f.id).padStart(3,'0');if(!names[k])return hideTip();showTip(ev,`<b>${esc(names[k])}</b>`)}).on('mouseleave',hideTip);
   const ev=filteredEvents();const r=d3.scaleOrdinal([1,2,3],[4,6,8.5]);
   svg.append('g').selectAll('circle').data([...ev].sort((a,b)=>a.sev-b.sev)).join('circle').attr('cx',d=>proj([d.lon,d.lat])[0]).attr('cy',d=>proj([d.lon,d.lat])[1]).attr('r',d=>r(d.sev)).attr('fill',d=>dOnly(d)?css('--surface'):sevC(d.sev)).attr('stroke',d=>dOnly(d)?sevC(d.sev):css('--surface')).attr('stroke-width',2).style('cursor','pointer')
     .on('mousemove',(e,d)=>showTip(e,`<b>${esc(d.title)}</b><br>${fmtD(d.date)} · 심각도 ${d.sev}${dOnly(d)?'<br><span class="k">⚠ D등급 출처만 있음</span>':''}<br><span class="k">클릭 시 출처 표시</span>`)).on('mouseleave',hideTip).on('click',(e,d)=>{hideTip();openEvent(d)});
   // legend
   const stops=[30,40,50,60,70,80,90,100];
-  $('#mapLeg').innerHTML=`<span>국가 위험 점수</span>${stops.map(s=>`<span><i style="background:${riskColor(s)}"></i>${s}</span>`).join('')}<span style="margin-left:10px">사건 심각도</span>${[1,2,3].map(s=>`<span><i style="background:${sevC(s)};border-radius:50%;width:${[0,8,11,15][s]}px;height:${[0,8,11,15][s]}px"></i>${s}</span>`).join('')}<span><i style="background:transparent;border:2px solid var(--sev2);border-radius:50%;width:11px;height:11px"></i>속 빈 점 = D등급 출처만</span>`;
+  $('#mapLeg').innerHTML=`<span>사건 심각도</span>${[1,2,3].map(s=>`<span><i style="background:${sevC(s)};border-radius:50%;width:${[0,8,11,15][s]}px;height:${[0,8,11,15][s]}px"></i>${s}</span>`).join('')}<span><i style="background:transparent;border:2px solid var(--sev2);border-radius:50%;width:11px;height:11px"></i>속 빈 점 = D등급 출처만</span>`;
 
 }
 
@@ -607,16 +615,13 @@ function renderGauge(){
   wt.querySelectorAll('input').forEach(inp=>inp.oninput=()=>{weights[inp.dataset.r]=inp.value/100;renderGauge()});
 }
 function renderRBars(){
-  const rows=D.regions.map(r=>({r,v:L.regions[r.id].score,p:P.regions[r.id]?.score,c:(L.changes||[]).find(c=>c.region===r.id)})).sort((a,b)=>b.v-a.v);
-  $('#rbars').innerHTML=rows.map(o=>{const dv=o.p!=null?o.v-o.p:0;return `<button class="rb" data-r="${o.r.id}"><span class="rn">${esc(SN(o.r.id))}${o.r.weight?'':' <span class="w">위기만</span>'}</span><span class="rt"><i style="width:${o.v}%;background:${riskColor(o.v)}"></i></span><span class="rv">${o.v}</span><span class="delta ${dv>0?'up':dv<0?'down':'flat'}">${dv>0?'▲':dv<0?'▼':'■'}${Math.abs(dv)||''}</span></button>`}).join('');
-  $('#rbars').querySelectorAll('.rb').forEach(b=>{const o=rows.find(x=>x.r.id===b.dataset.r);b.onclick=()=>openRegion(b.dataset.r);
-    b.onmousemove=e=>showTip(e,`<b>${esc(o.r.name)}</b> ${o.v}점 · ${bandOf(o.v).label}${o.c?`<br><span class="k">${esc(o.c.text)}</span>`:''}`);b.onmouseleave=hideTip});
+  $('#rbars').innerHTML=D.regions.map(r=>{const {c}=dirOf(r.id);return `<button class="dr" data-r="${r.id}"><span class="rn">${esc(SN(r.id))}</span>${dirChip(r.id)}<span class="tx">${esc(c?.text||'큰 변화 없음')}<span class="ko">한국: ${esc(r.why)}</span></span></button>`}).join('');
+  $('#rbars').querySelectorAll('.dr').forEach(b=>b.onclick=()=>openRegion(b.dataset.r));
 }
 function openRegion(id){
-  const r=RG[id],R=L.regions[id],pr=P.regions[id];const dv=R.score-pr.score;const dims=D.method.dimensions;
+  const r=RG[id],R=L.regions[id];
   const ex=(L.experts||[]).filter(x=>x.region===id);const evs=D.events.filter(e=>e.region===id).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,6);
-  openDrawer(r.name,`<div style="display:flex;align-items:center;gap:14px;margin-bottom:12px"><div style="font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1">${R.score}</div><div><span class="band" style="background:${riskColor(R.score)}">${bandOf(R.score).label}</span><div class="delta ${dv>0?'up':dv<0?'down':'flat'}" style="margin-top:4px">${dv>0?'▲':dv<0?'▼':'■'} ${Math.abs(dv)} 전주 대비</div></div></div>
-   ${R.components?`<div style="margin:8px 0 14px">${dims.map((m,i)=>`<div class="cb"><span>${esc(m.name)}</span><span class="rt"><i style="width:${R.components[m.id]}%;background:var(${COMPC[i]})"></i></span><b>${R.components[m.id]}</b></div>`).join('')}</div>`:''}
+  openDrawer(r.name,`<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">${dirChip(id)}<span class="mini">전주 대비 · 한국: ${esc(r.why)}</span></div>
    ${R.actors?`<div class="actors" style="margin-bottom:12px">${R.actors.map(a=>`<span class="tag">${esc(a)}</span>`).join('')}</div>`:''}
    <p style="margin:0 0 10px;font-size:13.5px">${esc(R.summary)}</p>
    ${R.watch?`<p class="mini" style="margin:12px 0 4px"><b>주시 포인트</b></p><ul class="mini" style="margin:0;padding-left:18px">${R.watch.map(w=>`<li>${esc(w)}</li>`).join('')}</ul>`:''}
@@ -629,12 +634,12 @@ function gdots(ids){return (ids||[]).filter(i=>SRC[i]).map(i=>{const s=SRC[i];re
 
 // ---------- region brief (text) & quotes
 function renderBrief(){
-  const rs=D.regions.filter(r=>r.weight||L.regions[r.id].score>=70).sort((a,b)=>(b.weight||0)-(a.weight||0));
-  $('#rbrief').innerHTML=rs.map(r=>{const R=L.regions[r.id],pr=P.regions[r.id];const dv=pr?R.score-pr.score:0;const c=(L.changes||[]).find(x=>x.region===r.id);
-    return `<div class="card rbr"><div class="rh"><h3>${esc(r.name)}</h3><span class="band" style="background:${riskColor(R.score)}">${bandOf(R.score).label}</span><span class="delta ${dv>0?'up':dv<0?'down':'flat'}">${dv>0?'▲':dv<0?'▼':'■'}${Math.abs(dv)||''}</span><span class="sc">${R.score}</span></div>
-     <p>${esc(R.summary)}</p>${c?`<p class="mini"><b>점수 변화</b> ${esc(c.text)}</p>`:''}
+  $('#rbrief').innerHTML=D.regions.map(r=>{const R=L.regions[r.id];const {c}=dirOf(r.id);
+    return `<div class="card rbr"><div class="rh"><h3>${esc(r.name)}</h3>${dirChip(r.id)}</div>
+     <p>${esc(R.summary)}</p>${c?`<p class="mini"><b>이번 주 변화</b> ${esc(c.text)}</p>`:''}
+     <p class="mini"><b>한국에 중요한 이유</b> ${esc(r.why)}</p>
      ${R.watch?`<div class="wl"><b>주시</b>${R.watch.slice(0,3).map(w=>`<span class="tag">${esc(w)}</span>`).join('')}</div>`:''}
-     <button class="more" data-r="${r.id}">구성요소·사건·발언 보기 ›</button></div>`}).join('');
+     <button class="more" data-r="${r.id}">사건·발언 보기 ›</button></div>`}).join('');
   $('#rbrief').querySelectorAll('.more').forEach(b=>b.onclick=()=>openRegion(b.dataset.r));
 }
 function renderQuotes(){
@@ -747,9 +752,7 @@ function renderAudit(){
     ['D등급만 근거인 사건',dOnly+'건',`전체 사건 ${D.events.length}건 중. 판단의 단독 근거로 미사용 · 출처 중앙 연령 ${Math.round(med)}일`]
   ].map(([a,b,c])=>`<div class="card"><div class="mini">${a}</div><div style="font-size:30px;font-weight:780;letter-spacing:-.03em">${b}</div><div class="mini">${c}</div></div>`).join('');
   const M=D.method;
-  $('#method').innerHTML=`<p class="mini" style="margin-top:0">${esc(M.summary)}</p>
-   <table class="t"><tr><th>구성요소</th><th class="num">가중치</th><th>정의</th></tr>${M.dimensions.map(x=>`<tr><td><b>${esc(x.name)}</b></td><td class="num">${Math.round(x.weight*100)}%</td><td class="mini">${esc(x.desc)}</td></tr>`).join('')}</table>
-   <p class="mini" style="margin:12px 0 4px"><b>점수 구간</b> ${M.bands.map(b=>`${b.label} ${b.min}–${b.max}`).join(' · ')}</p>
+  $('#method').innerHTML=`<p class="mini" style="margin-top:0">지역별 흐름(악화·유지·완화)은 전주 대비 편집 판단. 가능성·시나리오 확률은 공개 자료 기반 추정치이며 공식 통계 아님.</p>
    <p class="mini" style="margin:4px 0"><b>가능성 척도</b> ${M.likelihood.map(l=>`${l.term} ${l.range}`).join(' · ')}</p>
    <p class="mini" style="margin:4px 0"><b>확신도</b> ${M.confidence.map(c=>`${c.level}: ${c.desc}`).join(' / ')}</p>
    <p class="mini" style="margin:4px 0"><b>신뢰 등급</b> ${M.tiers.map(t=>`<span class="tier ${t.tier}">${t.tier}</span> ${t.name}: ${t.desc}`).join('<br>')}</p>
